@@ -3,18 +3,33 @@
         "id": "1",
         "lat": "51.232712",
         "lng": "-0.540188",
-        "content": "<div>1</div>"
+        "mainImg": "property-1-1.jpg",
+        "imgAlt": "property 1 image",
+        "price": "£1,000,000",
+        "cardTitle": "A house",
+        "propertyDesc": "A very nice house in the country with a swimming pool and beautiful views. Modern style. Light and airy. Architect designed. Built across 3 floors. Spacious garden.",
+        "bedrooms": "6"
     },
     {
         "id": "2",
         "lat": "51.233130",
         "lng": "-0.592020",
-        "content": "<div>2</div>"
+        "mainImg": "property-2-1.jpg",
+        "imgAlt": "property 2 image",
+        "price": "£750,000",
+        "cardTitle": "A house",
+        "propertyDesc": "A very nice house in the country with a swimming pool and beautiful views. Modern style. Light and airy. Architect designed. Built across 3 floors. Spacious garden.",
+        "bedrooms": "5"
     },
     {
         "id": "3",
         "lat": "51.206777",
         "lng": "-0.546255",
-        "content": "<div>3</div>"
+        "mainImg": "property-3-1.jpg",
+        "imgAlt": "property 3 image",
+        "price": "£600,000",
+        "cardTitle": "A house",
+        "propertyDesc": "A very nice house in the country with a swimming pool and beautiful views. Modern style. Light and airy. Architect designed. Built across 3 floors. Spacious garden.",
+        "bedrooms": "3"
     }
 ]
