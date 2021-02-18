@@ -1,0 +1,58 @@
+@font-face {
+	font-family: "Merriweather";
+	src: url("./fonts/Merriweather-Regular.ttf") format("truetype");
+}
+
+body {
+    font-family: "Merriweather";
+    background-color: #26DFD0;
+}
+
+#appContainer {
+    margin: 0 10em;
+}
+
+
+/* LIST VIEW */
+
+.listViewCardCont {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.listViewImgCont {
+    position: relative;
+    width: 45%;
+}
+
+.listViewPropertyImg {
+    width: 100%;
+    box-shadow: 4px 8px 10px 0 rgb(0, 0, 0, 0.5);
+}
+
+.listViewPrice {
+    position: absolute;
+    top: 1px;
+    right: 16px;
+    font-size: 1.5em;
+    background-color: #F9D030;
+    padding: 15px 20px;
+    border-radius: 55px;
+}
+
+.listViewInfoCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    background-color: white;
+    box-shadow: 4px 8px 10px 0 rgb(0, 0, 0, 0.5);
+    padding: 0 5%;
+    border-radius: 60px;
+}
+
+
+.googleMap {
+    width: 50%;
+}
