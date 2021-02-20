@@ -5,7 +5,7 @@ function ListViewCard(props) {
         <div class="listViewCardCont">
             <div class="listViewImgCont">
                 <img src={props.mainImg} alt={props.imgAlt} class="listViewPropertyImg"/>
-                <p class="listViewPrice">{props.price}</p>
+                <p class="listViewPrice">{props.displayPrice}</p>
             </div>
             <div class="listViewInfoCont">
                 <h3>{props.cardTitle}</h3>

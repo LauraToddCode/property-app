@@ -1,32 +1,32 @@
 [
     {
-        "bedrooms": "1"
+        "bedrooms": 1
     },
     {
-        "bedrooms": "2"
+        "bedrooms": 2
     },
     {
-        "bedrooms": "3"
+        "bedrooms": 3
     },
     {
-        "bedrooms": "4"
+        "bedrooms": 4
     },
     {
-        "bedrooms": "5"
+        "bedrooms": 5
     },
     {
-        "bedrooms": "6"
+        "bedrooms": 6
     },
     {
-        "bedrooms": "7"
+        "bedrooms": 7
     },
     {
-        "bedrooms": "8"
+        "bedrooms": 8
     },
     {
-        "bedrooms": "9"
+        "bedrooms": 9
     },
     {
-        "bedrooms": "10"
+        "bedrooms": 10
     }
 ]
