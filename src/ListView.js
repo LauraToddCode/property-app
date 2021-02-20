@@ -10,9 +10,9 @@ class ListView extends React.Component {
         this.state = {
             properties: propertiesData,
             minPrice: 25000,
-            maxPrice: 25000,
+            maxPrice: 1000000,
             minBedrooms: 1,
-            maxBedrooms: 1,
+            maxBedrooms: 10,
         }
         this.handleMinPriceChange = this.handleMinPriceChange.bind(this)
         this.handleMaxPriceChange = this.handleMaxPriceChange.bind(this)
@@ -21,20 +21,14 @@ class ListView extends React.Component {
     }
 
     handleMinPriceChange = (event) => {
-        const minPriceStr = event.target.value;
-        let minPrice = minPriceStr.slice(1, minPriceStr.length);
-        minPrice = parseInt(minPrice)
         this.setState({
-            minPrice: minPrice
+            minPrice: event.target.value
         })
     }
 
     handleMaxPriceChange = (event) => {
-        const maxPriceStr = event.target.value;
-        let maxPrice = maxPriceStr.slice(1, maxPriceStr.length);
-        maxPrice = parseInt(maxPrice)
         this.setState({
-            maxPrice: maxPrice
+            maxPrice: event.target.value
         })
     }
 
@@ -61,26 +55,22 @@ class ListView extends React.Component {
             <div>
                 <div>
                     <label>Min Price:</label>
-                    <select onChange={this.handleMinPriceChange}>
-                        {prices.map(price => <option key={price.price}>£{price.price}</option>)}
+                    <select value={minPrice} onChange={this.handleMinPriceChange}>
+                        {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
                     </select>
                     <label>Max Price:</label>
-                    <select onChange={this.handleMaxPriceChange}>
-                        {prices.map(price => <option key={price.price}>£{price.price}</option>)}
+                    <select value={maxPrice} onChange={this.handleMaxPriceChange}>
+                        {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
                     </select>
                     <label>Min no. of bedrooms:</label>
-                    <select onChange={this.handleMinBedChange}>
-                        {bedrooms.map(num => <option key={num.bedrooms}>{num.bedrooms}</option>)}
+                    <select value={minBedrooms} onChange={this.handleMinBedChange}>
+                        {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
                     </select>
                     <label>Max no. of bedrooms:</label>
-                    <select onChange={this.handleMaxBedChange}>
-                        {bedrooms.map(num => <option key={num.bedrooms}>{num.bedrooms}</option>)}
+                    <select value={maxBedrooms} onChange={this.handleMaxBedChange}>
+                        {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
                     </select>
                 </div>
-                <p>Min price:{this.state.minPrice}</p>
-                <p>Max price:{this.state.maxPrice}</p>
-                <p>Min beds:{this.state.minBedrooms}</p>
-                <p>Max beds:{this.state.maxBedrooms}</p>
                 <div>
                     {properties.map(property => validProperty(property.price, property.bedrooms) && (
                         <div>
