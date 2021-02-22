@@ -1,35 +1,85 @@
 import React from "react";
 import prices from "./priceFilters.json";
 import bedrooms from "./noOfBedroomsFilter.json";
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Paper from '@material-ui/core/Paper';
+
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(1),
+      width: theme.spacing(16),
+      height: theme.spacing(16),
+    },
+  },
+}));
+
+
 
 function Filters(props) {
+    const classes = useStyles();
+
     return (
-        <div id="filters">
-            <div className="indiFilter">
-                <label>Min Price:</label>
-                <select value={props.minPriceValue} onChange={props.handleMinPriceChange}>
-                    {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
-                </select>
-            </div>
-            <div className="indiFilter">
-                <label>Max Price:</label>
-                <select value={props.maxPriceValue} onChange={props.handleMaxPriceChange}>
-                    {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
-                </select>
-            </div>
-            <div className="indiFilter">
-                <label>Min no. of bedrooms:</label>
-                <select value={props.minBedroomsValue} onChange={props.handleMinBedChange}>
-                    {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
-                </select>
-            </div>
-            <div className="indiFilter">
-                <label>Max no. of bedrooms:</label>
-                <select value={props.maxBedroomsValue} onChange={props.handleMaxBedChange}>
-                    {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
-                </select>
-            </div>                    
-        </div>
+        <Paper elevation={3} id="filters">
+            <FormControl className={classes.formControl + " indiFilter"}>
+                <InputLabel id="demo-simple-select-label">Min Price:</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select" 
+                    value={props.minPriceValue} 
+                    onChange={props.handleMinPriceChange}
+                >
+                    {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
+                </Select>
+            </FormControl>
+            <FormControl className={classes.formControl + " indiFilter"}>
+                <InputLabel id="demo-simple-select-label">Max Price:</InputLabel>
+                <Select 
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={props.maxPriceValue} 
+                    onChange={props.handleMaxPriceChange}
+                >
+                    {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
+                </Select>
+            </FormControl>
+            <FormControl className={classes.formControl + " indiFilter"}>
+                <InputLabel id="demo-simple-select-label">Min no. of bedrooms:</InputLabel>
+                <Select 
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={props.minBedroomsValue} 
+                    onChange={props.handleMinBedChange}
+                >
+                    {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
+                </Select>
+            </FormControl>
+            <FormControl className={classes.formControl + " indiFilter"}>
+                <InputLabel id="demo-simple-select-label">Max no. of bedrooms:</InputLabel>
+                <Select 
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={props.maxBedroomsValue} 
+                    onChange={props.handleMaxBedChange}
+                >
+                    {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
+                </Select>
+            </FormControl>                   
+        </Paper>
     )
 } 
 
