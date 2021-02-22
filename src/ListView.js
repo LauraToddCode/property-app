@@ -9,7 +9,7 @@ class ListView extends React.Component {
         super(props)
         this.state = {
             properties: propertiesData,
-            minPrice: 25000,
+            minPrice: 0,
             maxPrice: 1000000,
             minBedrooms: 1,
             maxBedrooms: 10,
