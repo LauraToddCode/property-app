@@ -1,9 +1,8 @@
 import React from "react";
 import propertiesData from "./properties.json";
 import ListViewCard from "./Components/ListView/ListViewCard";
-import prices from "./priceFilters.json";
-import bedrooms from "./noOfBedroomsFilter.json";
 import ToggleViewNav from "./Components/ToggleViewNav";
+import Filters from "./Components/Filters";
 
 class ListView extends React.Component {
     constructor(props) {
@@ -54,32 +53,7 @@ class ListView extends React.Component {
 
         return (
             <div className="appContainer">
-                <div id="filters">
-                    <div className="indiFilter">
-                        <label>Min Price:</label>
-                        <select value={minPrice} onChange={this.handleMinPriceChange}>
-                            {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
-                        </select>
-                    </div>
-                    <div className="indiFilter">
-                        <label>Max Price:</label>
-                        <select value={maxPrice} onChange={this.handleMaxPriceChange}>
-                            {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
-                        </select>
-                    </div>
-                    <div className="indiFilter">
-                        <label>Min no. of bedrooms:</label>
-                        <select value={minBedrooms} onChange={this.handleMinBedChange}>
-                            {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
-                        </select>
-                    </div>
-                    <div className="indiFilter">
-                        <label>Max no. of bedrooms:</label>
-                        <select value={maxBedrooms} onChange={this.handleMaxBedChange}>
-                            {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
-                        </select>
-                    </div>                    
-                </div>
+                <Filters handleMinPriceChange={this.handleMinPriceChange} handleMaxPriceChange={this.handleMaxPriceChange} handleMinBedChange={this.handleMinBedChange} handleMaxBedChange={this.handleMaxBedChange} minPriceValue={minPrice} maxPriceValue={maxPrice} minBedroomsValue={minBedrooms} maxBedroomsValue={maxBedrooms}/>
                 <ToggleViewNav />
                 <div className="listViewList">
                     {properties.map(property => validProperty(property.price, property.bedrooms) && (
