@@ -36,25 +36,17 @@ body {
 .navTab {
     width: 50%;
     text-decoration: none;
-    background-color: white;
     color: black;
     font-size: 1.5rem;
-    padding: 20px 0;
     border-radius: 20px 20px 0 0;
     text-align: center;
+    background-color: #DEDEDE;
 }
 
-.navToggleLinks {
-    text-decoration: none;
+.active {
+    background-color: white;
 }
 
-.tabFocus {
-    background-color: #edf2f4;
-}
-
-.tabBlur {
-    background-color: aquamarine;
-}
 
 /* LIST VIEW */
 
