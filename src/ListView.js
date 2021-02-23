@@ -3,6 +3,7 @@ import propertiesData from "./properties.json";
 import ListViewCard from "./Components/ListView/ListViewCard";
 import ToggleViewNav from "./Components/ToggleViewNav";
 import Filters from "./Components/Filters";
+import MortgageCalculator from "./Components/MortgageCalculator";
 
 class ListView extends React.Component {
     constructor(props) {
@@ -53,13 +54,12 @@ class ListView extends React.Component {
 
         return (
             <div className="appContainer">
+                <MortgageCalculator />
                 <Filters handleMinPriceChange={this.handleMinPriceChange} handleMaxPriceChange={this.handleMaxPriceChange} handleMinBedChange={this.handleMinBedChange} handleMaxBedChange={this.handleMaxBedChange} minPriceValue={minPrice} maxPriceValue={maxPrice} minBedroomsValue={minBedrooms} maxBedroomsValue={maxBedrooms}/>
                 <ToggleViewNav />
-                <div className="listViewList">
+                <div className="MuiPaper-elevation3 listViewList">
                     {properties.map(property => validProperty(property.price, property.bedrooms) && (
-                        <div>
-                            <ListViewCard mainImg={process.env.PUBLIC_URL + "/images/properties/" + property.mainImg} imgAlt={property.imgAlt} displayPrice={property.displayPrice} type={property.type} propertyDesc={property.propertyDesc} bedrooms={property.bedrooms} bathrooms={property.bathrooms} livingRooms={property.livingRooms} key={property.id} />
-                        </div>
+                        <ListViewCard mainImg={process.env.PUBLIC_URL + "/images/properties/" + property.mainImg} imgAlt={property.imgAlt} displayPrice={property.displayPrice} type={property.type} propertyDesc={property.propertyDesc} bedrooms={property.bedrooms} bathrooms={property.bathrooms} livingRooms={property.livingRooms} key={property.id} />
                     ))}
                 </div>
             </div>
