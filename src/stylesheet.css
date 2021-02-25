@@ -133,6 +133,29 @@ body {
     background-color: #494af3;
 }
 
+/* MORTGAGE CALCULATOR */
+
+.mortgageCalculator {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 40px;
+}
+
+.resultContainer {
+    width: 35%;
+    margin-left: 60px;
+}
+
+.mortgageSmallText {
+    font-size: .75rem;
+}
+
+.mortgageAmount {
+    font-size: 2rem;
+    color: #494af3;
+    font-weight: 600;
+}
 
 .googleMap {
     width: 50%;

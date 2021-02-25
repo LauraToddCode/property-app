@@ -54,7 +54,7 @@ class ListView extends React.Component {
 
         return (
             <div className="appContainer">
-                <MortgageCalculator />
+                <MortgageCalculator propertyPrice="200000"/>
                 <Filters handleMinPriceChange={this.handleMinPriceChange} handleMaxPriceChange={this.handleMaxPriceChange} handleMinBedChange={this.handleMinBedChange} handleMaxBedChange={this.handleMaxBedChange} minPriceValue={minPrice} maxPriceValue={maxPrice} minBedroomsValue={minBedrooms} maxBedroomsValue={maxBedrooms}/>
                 <ToggleViewNav />
                 <div className="MuiPaper-elevation3 listViewList">
