@@ -1,5 +1,8 @@
 import React from "react";
 import Paper from '@material-ui/core/Paper';
+import BathtubIcon from '@material-ui/icons/Bathtub';
+import KingBedIcon from '@material-ui/icons/KingBed';
+import WeekendIcon from '@material-ui/icons/Weekend';
 
 function ListViewCard(props) {
 
@@ -14,15 +17,15 @@ function ListViewCard(props) {
                     <h3>{props.bedrooms} bed {props.type} for sale</h3>
                     <div className="roomTypes">
                         <div className="indiRoomType">
-                            <img src={process.env.PUBLIC_URL + "/images/propertyCards/bedroom.png"} />
+                            <KingBedIcon />
                             <p>{props.bedrooms}</p>
                         </div>
                         <div className="indiRoomType">
-                            <img src={process.env.PUBLIC_URL + "/images/propertyCards/bathroom.png"} />
+                            <BathtubIcon />
                             <p>{props.bathrooms}</p>
                         </div>
                         <div className="indiRoomType">
-                            <img src={process.env.PUBLIC_URL + "/images/propertyCards/livingRoom.png"} />
+                            <WeekendIcon />
                             <p>{props.livingRooms}</p>
                         </div>
                     </div>
