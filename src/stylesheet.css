@@ -155,6 +155,20 @@ body {
     font-size: 2rem;
     color: #494af3;
     font-weight: 600;
+    margin: 0 7px;
+}
+
+.mortgageLargeText {
+    display: flex;
+    align-items: baseline;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
 
 .googleMap {

@@ -3,6 +3,9 @@ import Paper from '@material-ui/core/Paper';import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 // styling for input boxes from Materials UI
@@ -10,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
+      flexDirection: 'row',
     },
     margin: {
       margin: theme.spacing(1),
@@ -34,6 +38,7 @@ function MortgageCalculator(props) {
         deposit: "100000",
         years: "25",
         interestRate: "3",
+        repaymentType: "Repayments"
     });
 
     // set values on change for input boxes
@@ -41,15 +46,18 @@ function MortgageCalculator(props) {
         setValues({ ...values, [prop]: event.target.value });
     };
 
-    //const depositDoubled = parseInt(values.deposit) * 2
-    let totalMonths = 12 * Number(values.years)
-    let interestPerMonth = Number(values.interestRate/100)/12
-    let interestPerMonthPlus1 = interestPerMonth + 1
-    let interestPowMonths = Math.pow(interestPerMonthPlus1,totalMonths)
-    let numerator = Number(values.propertyPrice - values.deposit)*interestPerMonth*interestPowMonths
-    let denominator = interestPowMonths - 1
-    let result = (numerator/denominator).toFixed(2)
+    let totalMonths = 12 * Number(values.years);
+    let interestPerMonth = Number(values.interestRate/100)/12;
+    let interestPerMonthPlus1 = interestPerMonth + 1;
+    let interestPowMonths = Math.pow(interestPerMonthPlus1,totalMonths);
+    let amountToPay = Number(values.propertyPrice - values.deposit)
+    let numerator = amountToPay*interestPerMonth*interestPowMonths;
+    let denominator = interestPowMonths - 1;
+    let repaymentResult = (numerator/denominator).toFixed(2);
+    let interestResult = amountToPay*interestPerMonth
 
+    const repayment = values.repaymentType == "Repayment" ? "show" : "hide";
+    const interest = values.repaymentType == "Interest" ? "show" : "hide";
 
     return (
         <Paper className={classes.root + " mortgageCalculator"}>
@@ -102,7 +110,14 @@ function MortgageCalculator(props) {
             </div>              
             
             <div className="resultContainer">
-                <p>You would pay <span className="mortgageAmount">£{result}</span>/month</p>
+                <RadioGroup aria-label="repaymentType" defaultValue="Repayment" onChange={handleChange("repaymentType")}>
+                    <FormControlLabel name="Repayment" value="Repayment" control={<Radio />} label="Repayment" />
+                    <FormControlLabel name="Interest" value="Interest" control={<Radio />} label="Interest Only" />
+                </RadioGroup>
+                <p className="mortgageLargeText">You would pay  
+                    <span className={repayment + " mortgageAmount"}>£{repaymentResult}</span>
+                    <span className={interest + " mortgageAmount"}>£{interestResult}</span> /month
+                </p>
                 <p className="mortgageSmallText">over the course of {values.years} years</p>
             </div>
         </Paper>
