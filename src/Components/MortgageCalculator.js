@@ -1,5 +1,6 @@
 import React from "react";
-import Paper from '@material-ui/core/Paper';import clsx from 'clsx';
+import Paper from '@material-ui/core/Paper';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';

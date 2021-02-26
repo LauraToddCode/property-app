@@ -30,7 +30,7 @@ function ListViewCard(props) {
                         </div>
                     </div>
                     <p>{props.propertyDesc}</p>
-                    <a className="findOutMore">Find out more</a>
+                    <a className="findOutMore" href="/property-profile">Find out more</a>
                 </div>
             </Paper>
 
