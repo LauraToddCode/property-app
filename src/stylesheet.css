@@ -10,6 +10,13 @@ body {
     margin: 0 10em;
 }
 
+/* HEADER */
+
+#header {
+    color: white;
+    display: flex;
+}
+
 /* FILTERS */
 
 #filters {
@@ -127,6 +134,7 @@ body {
     padding-bottom: 4px;
     cursor: pointer;
     margin-top: 30px;
+    text-decoration: none;
 }
 
 .findOutMore:hover {
@@ -137,14 +145,16 @@ body {
 
 .mortgageCalculator {
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding: 1rem;
-    margin: 40px;
+    margin: 40px 0;
 }
 
-.resultContainer {
-    width: 35%;
-    margin-left: 60px;
+.radioResultContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .mortgageSmallText {
@@ -169,6 +179,39 @@ body {
 
 .hide {
     display: none;
+}
+
+.mortgageChartContainer {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+}
+
+/* PROPERTY PROFILE */
+
+.profileContainer {
+    padding: 3rem;
+}
+
+.carousel {
+    width: 50%;
+}
+
+.carouselImg {
+    width: 100%;
+}
+
+.profileTop {
+    display: flex;
+    align-items: center;
+}
+
+.profileMainDetails {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 30px;
+    padding-bottom: 30px;
 }
 
 .googleMap {
