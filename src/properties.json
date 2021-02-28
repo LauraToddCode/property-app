@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "id": "0",
         "lat": "51.232712",
         "lng": "-0.540188",
         "mainImg": "property-1-1.jpg",
@@ -14,7 +14,7 @@
         "livingRooms": 2
     },
     {
-        "id": "2",
+        "id": "1",
         "lat": "51.233130",
         "lng": "-0.592020",
         "mainImg": "property-2-1.jpg",
@@ -28,7 +28,7 @@
         "livingRooms": 1
     },
     {
-        "id": "3",
+        "id": "2",
         "lat": "51.206777",
         "lng": "-0.546255",
         "mainImg": "property-3-1.jpg",
