@@ -80,7 +80,7 @@ function PropertyProfile() {
                             <h2>Description</h2>
                             <p>{propertiesData[Id].propertyDesc}</p>
                     </Paper>
-                    <MortgageCalculator />
+                    <MortgageCalculator propertyPrice={propertiesData[Id].price}/>
                 </div>
             )
         }}

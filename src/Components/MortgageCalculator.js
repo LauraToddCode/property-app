@@ -35,7 +35,7 @@ function MortgageCalculator(props) {
 
     // initialise state for input box values
     const [values, setValues] = React.useState({
-        propertyPrice: "200000",
+        propertyPrice: props.propertyPrice,
         deposit: "100000",
         years: "25",
         interestRate: "3",
@@ -100,7 +100,7 @@ function MortgageCalculator(props) {
                     <div className={classes.root}>
                         <TextField
                         label="Total Property Price"
-                        defaultValue="200000"
+                        defaultValue={props.propertyPrice}
                         variant="outlined"
                         className={clsx(classes.margin, classes.textField)}
                         InputProps={{
