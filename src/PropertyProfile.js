@@ -21,7 +21,6 @@ function PropertyProfile() {
             return (
                 <div className="appContainer">
                     <Paper className="profileContainer">
-                        <div>
                             <div className="profileTop">
                                 <Carousel 
                                     className="carousel"
@@ -33,11 +32,13 @@ function PropertyProfile() {
                                     }}
                                     navButtonsAlwaysVisible="false"
                                 >
-                                    <img 
-                                        src={process.env.PUBLIC_URL + "/images/properties/" + propertiesData[Id].mainImg} 
-                                        className="carouselImg" 
-                                        alt={propertiesData[Id].imgAlt}
-                                    />
+                                    {propertiesData[Id].imgs.map(imgSrc => 
+                                        <img 
+                                            src={process.env.PUBLIC_URL + "/images/properties/" + imgSrc}
+                                            className="carouselImg"
+                                            alt={propertiesData[Id].imgAlt} 
+                                        />
+                                    )}
                                 </Carousel>
                                 <div className="profileMainDetails">
                                     <h2>{propertiesData[Id].bedrooms} bedroom {propertiesData[Id].type}</h2>
@@ -75,11 +76,9 @@ function PropertyProfile() {
                                 </div>
                             </div>
                             <h2>Features</h2>
-                            <p>Coming Soon...</p>
+                            <ul>{propertiesData[Id].features.map(feature => <li>{feature}</li>)}</ul>
                             <h2>Description</h2>
                             <p>{propertiesData[Id].propertyDesc}</p>
-                            <p> Id is: {Id}</p>
-                        </div>
                     </Paper>
                     <MortgageCalculator />
                 </div>

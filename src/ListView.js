@@ -72,7 +72,7 @@ class ListView extends React.Component {
                             {(context) => (
                                 <ListViewCard 
                                     id={property.id}
-                                    mainImg={process.env.PUBLIC_URL + "/images/properties/" + property.mainImg} 
+                                    mainImg={process.env.PUBLIC_URL + "/images/properties/" + property.imgs[0]} 
                                     imgAlt={property.imgAlt} 
                                     displayPrice={property.displayPrice} 
                                     type={property.type} 
