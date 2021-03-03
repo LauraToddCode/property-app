@@ -1,9 +1,9 @@
 import React from "react";
 import properties from "./properties.json";
-import ListViewCard from "./Components/ListView/ListViewCard";
-import ToggleViewNav from "./Components/ToggleViewNav";
-import Filters from "./Components/Filters";
-import { ListingsContext } from "./ListingsContext";
+import ListViewCard from "./ListView/ListViewCard";
+import ToggleViewNav from "./ToggleViewNav";
+import Filters from "./Filters";
+import { ListingsContext } from "../ListingsContext";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -76,7 +76,6 @@ function ListView() {
             sorted = properties.sort((a, b) => (a["bedrooms"] > b["bedrooms"]) ? 1 : ((b["bedrooms"] > a["bedrooms"]) ? -1 : 0))
             setSortedProperties({sortedProperties: sorted})
         }
-        console.log(sorted)
     }
 
     return (

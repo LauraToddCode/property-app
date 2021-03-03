@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import ListView from "./ListView";
-import MapView from "./MapView";
-import PropertyProfile from "./PropertyProfile";
+import ListView from "./Components/ListView";
+import MapView from "./Components/MapView";
+import PropertyProfile from "./Components/PropertyProfile";
 import Header from "./Components/Header";
 import "./stylesheet.css";
 
