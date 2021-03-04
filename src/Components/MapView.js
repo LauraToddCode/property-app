@@ -7,8 +7,11 @@ function MapView() {
     return (
         <div className="appContainer">
             <ToggleViewNav />
-            <div className="MuiPaper-elevation3 listViewList mapViewList">
-                <PropertiesMap />
+            <div className="MuiPaper-elevation3 listViewList">
+                <div className="mapContainer">
+                    <PropertiesMap />    
+                </div>
+                <p>hello please work</p>
             </div>
         </div>
     )

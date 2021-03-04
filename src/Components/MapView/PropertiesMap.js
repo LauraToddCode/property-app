@@ -1,8 +1,9 @@
 import React from "react";
-import GoogleMapReact, { Marker } from 'google-maps-react';
-import properties from "../../properties.json";
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import properties from "../properties.json";
+import { CallReceived } from "@material-ui/icons";
 
-class PropertiesMap extends React.Component {
+class MapContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,35 +16,33 @@ class PropertiesMap extends React.Component {
         this.setState({
             id: event.id
         })
+        console.log(this.state.id)
     }
-
-    static defaultProps = {
-        center: { lat: 51.240738, lng: -0.573903}, 
-        zoom: 12
-     }
 
     render(){
 
+        const mapStyles = {
+            width: "calc(100vw - 385px)",
+            height: "450px",
+        };
+
 
         return (
-            <div style={{ width: "50%", height: "75%" }}>
-                <GoogleMapReact 
-                bootstrapURLKeys={{
-                    key: 'AIzaSyCVc5BV5f51pj4r0K3RhGy4EDVGFKyGfqo', 
-                    language: 'en'
-                }}
-                defaultCenter={this.props.center}
-                defaultZoom={this.props.zoom}
+            <Map 
                 google={this.props.google}
-                >
+                zoom={13}
+                style={mapStyles}
+                initialCenter={{ lat: 51.240738, lng: -0.573903}}    
+            >
                 {properties.map(property =>
                     <Marker position={{ lat: property.lat, lng: property.lng }} onClick={this.handleClick} id={property.id} key={property.id}>
                     </Marker>
                 )}
-                </GoogleMapReact>                    
-            </div>
+            </Map>
         )
     }   
 }
 
-export default PropertiesMap;
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyCVc5BV5f51pj4r0K3RhGy4EDVGFKyGfqo'
+  })(MapContainer);

@@ -7,7 +7,7 @@ body {
 }
 
 .appContainer {
-    margin: 0 10em;
+    margin: 0 160px;
 }
 
 /* HEADER */
@@ -222,6 +222,10 @@ body {
     padding-bottom: 30px;
 }
 
-.googleMap {
-    width: 50%;
+/* MAP VIEW */
+
+.mapContainer {
+    height: 500px;
+    background-color: white;
+    clip-path: inset(2px 50px 10px 50px);
 }
