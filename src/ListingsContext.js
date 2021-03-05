@@ -4,7 +4,7 @@ export const ListingsContext = createContext();
 
 export class ListingsProvider extends React.Component {
     state = {
-        clickedId: ""
+        clickedId: "",
     }
 
     render() {
@@ -16,7 +16,7 @@ export class ListingsProvider extends React.Component {
                     this.setState({
                         clickedId: event.currentTarget.id
                     })
-                }, 
+                }
             }}>
                 {this.props.children}
             </ListingsContext.Provider>
