@@ -1,7 +1,7 @@
 import React from "react";
 import Paper from '@material-ui/core/Paper';
 import Carousel from 'react-material-ui-carousel';
-import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 import CallIcon from '@material-ui/icons/Call';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import KingBedIcon from '@material-ui/icons/KingBed';
@@ -11,7 +11,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { ListingsContext } from "../ListingsContext";
 import propertiesData from "./properties.json";
 
-function PropertyProfile() {
+function PropertyProfile(props) {
     
     return (
         <ListingsContext.Consumer>
@@ -45,22 +45,12 @@ function PropertyProfile() {
                                 <div className="profileMainDetails">
                                     <h2>{currProperty[0].bedrooms} bedroom {currProperty[0].type}</h2>
                                     <p>{currProperty[0].address}</p>
-                                    <Button 
-                                        variant="contained" 
-                                        size="large" 
-                                        color="primary"
-                                        startIcon={<CallIcon />}
-                                    >
-                                        Contact the Agent
-                                    </Button>
-                                    <Button 
-                                        variant="contained" 
-                                        size="large" 
-                                        color="primary"
-                                        startIcon={<StarBorderIcon />}
-                                    >
-                                        Save
-                                    </Button>
+                                    <Link to="/property-profile" className="btn" >
+                                        <CallIcon />CONTACT THE AGENT 
+                                    </Link>
+                                    <Link to="/property-profile" className="btn saveBtn" onClick={props.onClick} id={Id}>
+                                        <StarBorderIcon />SAVE
+                                    </Link>
                                 </div>
                             </div>
                             <div className="roomTypes">
