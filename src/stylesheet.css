@@ -12,8 +12,9 @@ body {
 
 .btn {
     height: 40px;
-    width: 150px;
+    width: 180px;
     font-size: 0.9375rem;
+    font-weight: 500;
     border-radius: 28px;
     padding: 8px 22px;
     margin-top: 30px;
@@ -225,6 +226,14 @@ body {
     flex-direction: column;
     margin: 0 0 0 30px;
     padding-bottom: 30px;
+}
+
+.saveBtn {
+    background-color: #F9D030;
+}
+
+.saveBtn:hover {
+    background-color: #FBBF41;
 }
 
 /* MAP VIEW */
