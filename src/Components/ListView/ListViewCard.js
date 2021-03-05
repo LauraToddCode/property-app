@@ -4,6 +4,7 @@ import BathtubIcon from '@material-ui/icons/Bathtub';
 import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
 import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 function ListViewCard(props) {
 
@@ -30,8 +31,8 @@ function ListViewCard(props) {
                     </div>
                 </div>
                 <p>{props.propertyDesc}</p>
-                <Link to="/property-profile" >
-                    <button id={props.id} className="findOutMore" onClick={props.onClick}>Find out more</button>
+                <Link to="/property-profile" className="btn" onClick={props.onClick} id={props.id} >
+                    FIND OUT MORE <ArrowForwardIosIcon />
                 </Link>
             </div>
         </Paper>
