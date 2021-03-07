@@ -107,7 +107,6 @@ function ListView() {
                         <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
                     </Select>
                 </FormControl>
-                {/*properties.sort((a, b) => (b["price"] > a["price"]) ? 1 : ((a["price"] > b["price"]) ? -1 : 0))*/}
                 {properties.map(property => validProperty(property.price, property.bedrooms) && (
                     <ListingsContext.Consumer>
                         {(context) => (
