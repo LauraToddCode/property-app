@@ -39,15 +39,51 @@ body {
 
 #header {
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr 1fr 160px;
     margin: 15px 0;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/4;
 }
 
 .headerIcon {
     margin-right: 10px;
     color: white;
+}
+
+#savedLinkCont {
+    display: inline-block;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+#headerSaved {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+#headerSaved::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+  
+#headerSaved:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
 }
 
 /* FILTERS */
