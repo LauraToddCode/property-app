@@ -1,7 +1,6 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import properties from "../properties.json";
-import { CallReceived } from "@material-ui/icons";
 
 class MapContainer extends React.Component {
     constructor(props) {
