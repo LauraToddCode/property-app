@@ -16,7 +16,8 @@ function App() {
     }, [savedItems]);
     
     const savedProperties = (event) => {
-        setSavedItems([event.target.id].concat(savedItems))
+        let arr = [event.target.id].concat(savedItems);
+        setSavedItems(arr)
     }
 
     return (

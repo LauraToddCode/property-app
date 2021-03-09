@@ -3,6 +3,20 @@ import { Link } from "react-router-dom"
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 function Header(props) {
+    let saved = props.savedItems
+    let savedArr = saved.length > 1 ? [saved[0]] : []
+    if (saved.length > 1) {
+        let savedStr = saved[1].split(",")
+        for (let i = 0; i < savedStr.length; i++) {
+            savedArr.push(savedStr[i])
+        }
+        console.log(savedArr)
+    }
+
+    const [ noOfSaved, setNoOfSaved ] = React.useState(0);
+
+    setNoOfSaved(savedArr.length - 1)
+    
     return (
         <header id="header">
             <div id="title">
@@ -15,7 +29,7 @@ function Header(props) {
             </div>
             <div id="savedLinkCont">
                 <Link to="/saved-properties" id="headerSaved">
-                    Saved Properties ({props.savedItems.length - 1})
+                    Saved Properties ({noOfSaved})
                 </Link>
             </div>
             
