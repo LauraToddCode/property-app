@@ -13,9 +13,6 @@ function Header(props) {
         console.log(savedArr)
     }
 
-    const [ noOfSaved, setNoOfSaved ] = React.useState(0);
-
-    setNoOfSaved(savedArr.length - 1)
     
     return (
         <header id="header">
@@ -29,7 +26,7 @@ function Header(props) {
             </div>
             <div id="savedLinkCont">
                 <Link to="/saved-properties" id="headerSaved">
-                    Saved Properties ({noOfSaved})
+                    Saved Properties ({savedArr})
                 </Link>
             </div>
             
