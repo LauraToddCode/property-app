@@ -8,29 +8,14 @@ import SavedProperties from "./Components/SavedProperties";
 import "./stylesheet.css";
 
 function App() {
-    
-    const [ savedItems, setSavedItems ] = useState([localStorage.getItem('valueInLocalStorage')] || [])
-
-    React.useEffect(() => {
-        localStorage.setItem('valueInLocalStorage', savedItems);
-    }, [savedItems]);
-    
-    const savedProperties = (event) => {
-        let arr = [event.target.id].concat(savedItems);
-        setSavedItems(arr)
-    }
 
     return (
         <div>
-            <Header savedItems={savedItems}/>
+            <Header/>
             <Route exact path="/property-app" component={ ListView } />
             <Route exact path="/map-view" component={ MapView } />
-            <Route exact path="/property-profile" 
-                render={() => (
-                    <PropertyProfile onClick={savedProperties} savedItems={savedItems} />
-                )}
-            />
-            <Route exact path="/saved-properties" component={ SavedProperties } savedItems={savedItems} />
+            <Route exact path="/property-profile" component= { PropertyProfile } />
+            <Route exact path="/saved-properties" component={ SavedProperties } />
         </div>
     )
 }

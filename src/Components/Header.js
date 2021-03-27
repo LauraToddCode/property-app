@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
 import { Link } from "react-router-dom"
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import { connect } from "react-redux";
 
-function Header(props) {
-    let saved = props.savedItems
-    let savedArr = saved.length > 1 ? [saved[0]] : []
-    if (saved.length > 1) {
-        let savedStr = saved[1].split(",")
-        for (let i = 0; i < savedStr.length; i++) {
-            savedArr.push(savedStr[i])
-        }
-        console.log(savedArr)
-    }
 
-    
+function Header({ savedItems }) { 
+
+    const [savedCount, setSavedCount] = useState(0);
+
+    useEffect(() => {
+        setSavedCount(savedItems.length);
+    }, [savedItems, savedCount])
+
     return (
         <header id="header">
             <div id="title">
@@ -26,7 +24,7 @@ function Header(props) {
             </div>
             <div id="savedLinkCont">
                 <Link to="/saved-properties" id="headerSaved">
-                    Saved Properties ({savedArr})
+                    Saved Properties ({savedCount})
                 </Link>
             </div>
             
@@ -34,4 +32,10 @@ function Header(props) {
     )
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        savedItems: state.save.savedItems
+    }
+}
+
+export default connect(mapStateToProps)(Header);

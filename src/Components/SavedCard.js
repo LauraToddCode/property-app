@@ -6,47 +6,40 @@ import WeekendIcon from '@material-ui/icons/Weekend';
 import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { connect } from "react-redux";
-import { addToSaved } from "../../redux/save/save-actions";
 
-function ListViewCard({ productData, addToSaved }) {
+function SavedCard({ itemData }) {
 
     return (
         <Paper elevation={3} className="listViewCardCont">
             <div elevation={3} className="listViewImgCont">
-                <img src={productData.mainImg} alt={productData.imgAlt} className="listViewPropertyImg"/>
-                <p className="listViewPrice">{productData.displayPrice}</p>
+                <img src={itemData.mainImg} alt={itemData.imgAlt} className="listViewPropertyImg"/>
+                <p className="listViewPrice">{itemData.displayPrice}</p>
             </div>
             <div elevation={3} className="listViewInfoCont">
-                <h3>{productData.bedrooms} bed {productData.type} for sale</h3>
+                <h3>{itemData.bedrooms} bed {itemData.type} for sale</h3>
                 <div className="roomTypes">
                     <div className="indiRoomType">
                         <KingBedIcon />
-                        <p>{productData.bedrooms}</p>
+                        <p>{itemData.bedrooms}</p>
                     </div>
                     <div className="indiRoomType">
                         <BathtubIcon />
-                        <p>{productData.bathrooms}</p>
+                        <p>{itemData.bathrooms}</p>
                     </div>
                     <div className="indiRoomType">
                         <WeekendIcon />
-                        <p>{productData.livingRooms}</p>
+                        <p>{itemData.livingRooms}</p>
                     </div>
                 </div>
-                <p>{productData.propertyDesc}</p>
-                <Link to="/property-profile" className="btn" onClick={productData.onClick} id={productData.id} >
+                <p>{itemData.propertyDesc}</p>
+                <Link to="/property-profile" className="btn" onClick={itemData.onClick} id={itemData.id} >
                     FIND OUT MORE <ArrowForwardIosIcon />
                 </Link>
-                <button onClick={() => addToSaved(productData.id)}>Save</button>
             </div>
         </Paper>
 
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addToSaved: (id) => dispatch(addToSaved(id))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(ListViewCard);
+export default SavedCard;

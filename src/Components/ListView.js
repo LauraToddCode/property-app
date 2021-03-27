@@ -3,12 +3,13 @@ import properties from "./properties.json";
 import ListViewCard from "./ListView/ListViewCard";
 import ToggleViewNav from "./ToggleViewNav";
 import Filters from "./Filters";
-import { ListingsContext } from "../ListingsContext";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { connect } from "react-redux";
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ListView() {
+function ListView({ products }) {
     const classes = useStyles();
 
     const [minPrice, setMinPrice] = React.useState(0)
@@ -107,30 +108,22 @@ function ListView() {
                         <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
                     </Select>
                 </FormControl>
-                {properties.map(property => validProperty(property.price, property.bedrooms) && (
-                    <ListingsContext.Consumer>
-                        {(context) => (
-                            <ListViewCard 
-                                id={property.id}
-                                mainImg={process.env.PUBLIC_URL + "/images/properties/" + property.imgs[0]} 
-                                imgAlt={property.imgAlt} 
-                                displayPrice={property.displayPrice} 
-                                type={property.type} 
-                                propertyDesc={property.propertyDesc} 
-                                bedrooms={property.bedrooms} 
-                                bathrooms={property.bathrooms} 
-                                livingRooms={property.livingRooms} 
-                                key={property.id}
-                                onClick={context.getId}
-                            />
-                        )}
-                    </ListingsContext.Consumer>
+                {products.map(property => validProperty(property.price, property.bedrooms) && (
+                    <ListViewCard 
+                        key={property.id}
+                        productData={property}
+                    />
                 ))}
-                
             </div>
             
         </div>
     )
 }
 
-export default ListView
+const mapStateToProps = state => {
+    return {
+        products: state.save.products
+    }
+}
+
+export default connect(mapStateToProps)(ListView);
