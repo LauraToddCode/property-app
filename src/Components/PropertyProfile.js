@@ -8,9 +8,11 @@ import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
 import MortgageCalculator from "./MortgageCalculator";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import propertiesData from "./properties.json";
+import { connect } from "react-redux";
+import { addToSaved } from "../redux/save/save-actions";
 
-function PropertyProfile(props) {
+
+function PropertyProfile({ currentItem, addToSaved }) {
     return (
         <div className="appContainer">
             <Paper className="profileContainer">
@@ -19,13 +21,15 @@ function PropertyProfile(props) {
                             <img/>
                         </Carousel>
                         <div className="profileMainDetails">
-                            <h2> bedroom </h2>
+                            <h2>{currentItem.bedrooms} bedroom {currentItem.propertyDesc}</h2>
                             <p></p>
                             <Link to="/property-profile" className="btn" >
                                 <CallIcon />CONTACT THE AGENT 
                             </Link>
                             <Link to="/property-profile" className="btn saveBtn">
+                                <button onClick={() => addToSaved(currentItem.id)}>x
                                 <StarBorderIcon />SAVE
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -53,4 +57,16 @@ function PropertyProfile(props) {
     )
 }
 
-export default PropertyProfile
+const mapStateToProps = state => {
+    return {
+        currentItem: state.save.currentItem
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addToSaved: (id) => dispatch(addToSaved(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PropertyProfile)

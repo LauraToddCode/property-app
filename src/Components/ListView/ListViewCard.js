@@ -6,9 +6,9 @@ import WeekendIcon from '@material-ui/icons/Weekend';
 import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { connect } from "react-redux";
-import { addToSaved } from "../../redux/save/save-actions";
+import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions";
 
-function ListViewCard({ productData, addToSaved }) {
+function ListViewCard({ productData, addToSaved, loadCurrentItem }) {
 
     return (
         <Paper elevation={3} className="listViewCardCont">
@@ -33,8 +33,10 @@ function ListViewCard({ productData, addToSaved }) {
                     </div>
                 </div>
                 <p>{productData.propertyDesc}</p>
-                <Link to="/property-profile" className="btn" onClick={productData.onClick} id={productData.id} >
+                <Link to={`/property-profile/${productData.id}`} className="btn">
+                    <button onClick={() => loadCurrentItem(productData)}>
                     FIND OUT MORE <ArrowForwardIosIcon />
+                    </button>
                 </Link>
                 <button onClick={() => addToSaved(productData.id)}>Save</button>
             </div>
@@ -45,7 +47,8 @@ function ListViewCard({ productData, addToSaved }) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addToSaved: (id) => dispatch(addToSaved(id))
+        addToSaved: (id) => dispatch(addToSaved(id)),
+        loadCurrentItem: (item) => dispatch(loadCurrentItem(item))
     }
 }
 

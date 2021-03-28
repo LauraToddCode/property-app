@@ -23,7 +23,7 @@ function Header({ savedItems }) {
                 <h1>Prime Pad</h1>
             </div>
             <div id="savedLinkCont">
-                <Link to="/saved-properties" id="headerSaved">
+                <Link to="/saved" id="headerSaved">
                     Saved Properties ({savedCount})
                 </Link>
             </div>
