@@ -48,27 +48,35 @@ function ListView({ products }) {
         });
     }
 
+    // conditions for a property to be valid within parameters of filters
     const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
 
-    const [sortedProperties, setSortedProperties] = React.useState(properties)
+
+    // set state for 'sort' dropdown
+    const [sortedProperties, setSortedProperties] = React.useState(products)
 
     const handleSort = (event) => {
         let sortBy = event.target.value
         let sorted = []
         if (sortBy == "priceHighToLow") {
-            sorted = properties.sort((a, b) => (b["price"] > a["price"]) ? 1 : ((a["price"] > b["price"]) ? -1 : 0))
+            sorted = products.sort((a, b) => (b["price"] > a["price"]) ? 1 : ((a["price"] > b["price"]) ? -1 : 0))
+            console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "priceLowToHigh") {
-            sorted = properties.sort((a, b) => (a["price"] > b["price"]) ? 1 : ((b["price"] > a["price"]) ? -1 : 0))
+            sorted = products.sort((a, b) => (a["price"] > b["price"]) ? 1 : ((b["price"] > a["price"]) ? -1 : 0))
+            console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "bedsHighToLow") {
-            sorted = properties.sort((a, b) => (b["bedrooms"] > a["bedrooms"]) ? 1 : ((a["bedrooms"] > b["bedrooms"]) ? -1 : 0))
+            sorted = products.sort((a, b) => (b["bedrooms"] > a["bedrooms"]) ? 1 : ((a["bedrooms"] > b["bedrooms"]) ? -1 : 0))
+            console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "bedsLowToHigh") {
-            sorted = properties.sort((a, b) => (a["bedrooms"] > b["bedrooms"]) ? 1 : ((b["bedrooms"] > a["bedrooms"]) ? -1 : 0))
+            sorted = products.sort((a, b) => (a["bedrooms"] > b["bedrooms"]) ? 1 : ((b["bedrooms"] > a["bedrooms"]) ? -1 : 0))
+            console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         }
     }
+
 
     return (
         <div className="appContainer">
@@ -79,12 +87,6 @@ function ListView({ products }) {
                 minBedroomsValue={state.minBedrooms} 
                 maxBedroomsValue={state.maxBedrooms}
             />
-            <div>
-                <p>current min price: {state.minPrice}</p>
-                <p>current max price: {state.maxPrice}</p>
-                <p>current min bed: {state.minBedrooms}</p>
-                <p>current max bed: {state.maxBedrooms}</p>
-            </div>
             <ToggleViewNav />
             
             <div className="MuiPaper-elevation3 listViewList">
