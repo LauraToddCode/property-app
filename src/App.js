@@ -1,8 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect, } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import ListView from "./Components/ListView";
 import MapView from "./Components/MapView";
 import PropertyProfile from "./Components/PropertyProfile";
@@ -14,9 +11,8 @@ import { connect } from "react-redux";
 function App({ currentItem }) {
 
     return (
-        <Router>
+        <div>
             <Header/>
-            <Switch>
                 <Route exact path="/property-app" component={ ListView } />
                 <Route exact path="/map-view" component={ MapView } />
                 {!currentItem ? (
@@ -25,8 +21,7 @@ function App({ currentItem }) {
                     <Route exact path="/property-profile/:id" component= { PropertyProfile } />
                 )}
                 <Route exact path="/saved" component= { Saved } />
-            </Switch>
-        </Router>
+        </div>
     )
 }
 
