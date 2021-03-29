@@ -33,31 +33,22 @@ const useStyles = makeStyles((theme) => ({
 function ListView({ products }) {
     const classes = useStyles();
 
-    const [minPrice, setMinPrice] = React.useState(0)
+    const [state, setState] = React.useState({
+        minPrice: 0,
+        maxPrice: 1000000,
+        minBedrooms: 1,
+        maxBedrooms: 10
+    })
 
-    const handleMinPriceChange = (event) => {
-        setMinPrice({ minPrice: event.target.value });
-    };
+    function handleChange(evt) {
+        const value = evt.target.value;
+        setState({
+          ...state,
+          [evt.target.name]: value
+        });
+    }
 
-    const [maxPrice, setMaxPrice] = React.useState(1000000)
-
-    const handleMaxPriceChange = (event) => {
-        setMaxPrice({ maxPrice: event.target.value });
-    };
-
-    const [minBedrooms, setMinBedrooms] = React.useState(1)
-
-    const handleMinBedChange = (event) => {
-        setMinBedrooms({ minBedrooms: event.target.value });
-    };
-
-    const [maxBedrooms, setMaxBedrooms] = React.useState(10)
-
-    const handleMaxBedChange = (event) => {
-        setMaxBedrooms({ maxBedrooms: event.target.value });
-    };
-
-    const validProperty = (price, beds) => price >= minPrice && price <= maxPrice && beds >= minBedrooms && beds <= maxBedrooms
+    const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
 
     const [sortedProperties, setSortedProperties] = React.useState(properties)
 
@@ -82,15 +73,18 @@ function ListView({ products }) {
     return (
         <div className="appContainer">
             <Filters 
-                handleChange={handleMinPriceChange} 
-                handleMaxPriceChange={handleMaxPriceChange} 
-                handleMinBedChange={handleMinBedChange} 
-                handleMaxBedChange={handleMaxBedChange} 
-                minPriceValue={minPrice} 
-                maxPriceValue={maxPrice} 
-                minBedroomsValue={minBedrooms} 
-                maxBedroomsValue={maxBedrooms}
+                handleChange={handleChange} 
+                minPriceValue={state.minPrice} 
+                maxPriceValue={state.maxPrice} 
+                minBedroomsValue={state.minBedrooms} 
+                maxBedroomsValue={state.maxBedrooms}
             />
+            <div>
+                <p>current min price: {state.minPrice}</p>
+                <p>current max price: {state.maxPrice}</p>
+                <p>current min bed: {state.minBedrooms}</p>
+                <p>current max bed: {state.maxBedrooms}</p>
+            </div>
             <ToggleViewNav />
             
             <div className="MuiPaper-elevation3 listViewList">

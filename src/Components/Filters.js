@@ -40,8 +40,9 @@ function Filters(props) {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select" 
+                    name="minPrice"
                     value={props.minPriceValue} 
-                    onChange={props.handleMinPriceChange}
+                    onChange={props.handleChange}
                 >
                     {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
                 </Select>
@@ -51,8 +52,9 @@ function Filters(props) {
                 <Select 
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
+                    name="maxPrice"
                     value={props.maxPriceValue} 
-                    onChange={props.handleMaxPriceChange}
+                    onChange={props.handleChange}
                 >
                     {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
                 </Select>
@@ -62,8 +64,9 @@ function Filters(props) {
                 <Select 
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
+                    name="minBedrooms"
                     value={props.minBedroomsValue} 
-                    onChange={props.handleMinBedChange}
+                    onChange={props.handleChange}
                 >
                     {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
                 </Select>
@@ -73,8 +76,9 @@ function Filters(props) {
                 <Select 
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
+                    name="maxBedrooms"
                     value={props.maxBedroomsValue} 
-                    onChange={props.handleMaxBedChange}
+                    onChange={props.handleChange}
                 >
                     {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
                 </Select>
