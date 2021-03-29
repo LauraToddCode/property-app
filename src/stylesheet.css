@@ -274,8 +274,13 @@ body {
 
 /* MAP VIEW */
 
-.mapContainer {
+#mapContainer {
+    background-color: white;
+    padding: 30px;
+}
+
+#mapClipPath {
     height: 500px;
     background-color: white;
-    clip-path: inset(2px 50px 10px 50px);
+    position: relative;
 }

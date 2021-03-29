@@ -27,17 +27,21 @@ class MapContainer extends React.Component {
 
 
         return (
-            <Map 
-                google={this.props.google}
-                zoom={12}
-                style={mapStyles}
-                initialCenter={{ lat: 51.240738, lng: -0.573903}}    
-            >
-                {properties.map(property =>
-                    <Marker position={{ lat: property.lat, lng: property.lng }} onClick={this.handleClick} id={property.id} key={property.id}>
-                    </Marker>
-                )}
-            </Map>
+            <div id="mapContainer">
+                <div id="mapClipPath">
+                    <Map 
+                        google={this.props.google}
+                        zoom={12}
+                        style={mapStyles}
+                        initialCenter={{ lat: 51.240738, lng: -0.573903}}    
+                    >
+                        {properties.map(property =>
+                            <Marker position={{ lat: property.lat, lng: property.lng }} onClick={this.handleClick} id={property.id} key={property.id}>
+                            </Marker>
+                        )}
+                    </Map>
+                </div>
+            </div>
         )
     }   
 }

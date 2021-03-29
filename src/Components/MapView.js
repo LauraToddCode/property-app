@@ -11,7 +11,6 @@ function MapView() {
                 <div className="mapContainer">
                     <PropertiesMap />    
                 </div>
-                <p>hello please work</p>
             </div>
         </div>
     )
