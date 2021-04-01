@@ -1,17 +1,17 @@
 import React from "react";
 import Filters from "./Filters";
-import PropertiesMap from "./MapView/PropertiesMap"
+import Map from "./MapView/Map"
 import ToggleViewNav from "./ToggleViewNav";
 
 function MapView() {
     return (
         <div className="appContainer">
             <ToggleViewNav />
-            <div className="MuiPaper-elevation3 listViewList">
-                <div className="mapContainer">
-                    <PropertiesMap />    
+                <div id="mapContainer">
+                    <div id="mapClipPath">
+                        <Map />
+                    </div>
                 </div>
-            </div>
         </div>
     )
 }
