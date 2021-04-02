@@ -13,7 +13,7 @@ function ListViewCard({ productData, addToSaved, loadCurrentItem }) {
     return (
         <Paper elevation={3} className="listViewCardCont">
             <div elevation={3} className="listViewImgCont">
-                <img src={productData.mainImg} alt={productData.imgAlt} className="listViewPropertyImg"/>
+                <img src={process.env.PUBLIC_URL + "/images/properties/" + productData.imgs[0]} alt={productData.imgAlt} className="listViewPropertyImg"/>
                 <p className="listViewPrice">{productData.displayPrice}</p>
             </div>
             <div elevation={3} className="listViewInfoCont">

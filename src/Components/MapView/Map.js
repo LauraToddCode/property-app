@@ -7,13 +7,14 @@ import {
     InfoWindow 
 } from "react-google-maps";
 import properties from "../properties.json";
+import MarkerInfo from "./MarkerInfo";
 
 function MapComponent() {
     const [selectedProperty, setSelectedProperty] = useState(null);
-
+    
     return (
         <GoogleMap 
-            defaultZoom={10}
+            defaultZoom={13}
             defaultCenter={{ lat: 51.232712, lng: -0.540188 }}
         >
             {properties.map((property) => (
@@ -25,6 +26,10 @@ function MapComponent() {
                     }}
                     onClick ={() => {
                         setSelectedProperty(property);
+                    }}
+                    icon={{
+                        url: "/images/header/houseIcon.png",
+                        scaledSize: new window.google.maps.Size(25, 25)
                     }}
                 />
             ))}
@@ -39,10 +44,11 @@ function MapComponent() {
                         setSelectedProperty(null);
                     }}
                 >
-                    <div>
-                        <h2>{selectedProperty.type}</h2>
-                        <p>{selectedProperty.propertyDesc}</p>
-                    </div>
+                    <MarkerInfo 
+                        img={selectedProperty.imgs[0]} 
+                        beds={selectedProperty.bedrooms} 
+                        type={selectedProperty.type}     
+                    />
                 </InfoWindow>
             )}
         </GoogleMap>
