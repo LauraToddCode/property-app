@@ -12,7 +12,7 @@ function saveToLocalStorage(state) {
   }
 }
 
-// load string from localStarage and convert into an Object
+// load string from localStorage and convert into an Object
 // invalid output must be undefined
 function loadFromLocalStorage() {
   try {

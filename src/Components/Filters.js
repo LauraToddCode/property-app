@@ -6,7 +6,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Paper from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +33,8 @@ function Filters(props) {
     const classes = useStyles();
 
     return (
-        <Paper elevation={3} id="filters">
+        <div id="filters">
+            <h3 id="startSearch">start your search</h3>
             <FormControl className={classes.formControl + " indiFilter"}>
                 <InputLabel id="demo-simple-select-label">Min Price:</InputLabel>
                 <Select
@@ -83,7 +83,7 @@ function Filters(props) {
                     {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
                 </Select>
             </FormControl>                   
-        </Paper>
+        </div>
     )
 } 
 

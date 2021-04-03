@@ -1,6 +1,5 @@
 import React, { useState , useEffect } from "react";
 import { Link } from "react-router-dom"
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { connect } from "react-redux";
 
 
@@ -15,12 +14,9 @@ function Header({ savedItems }) {
     return (
         <header id="header">
             <div id="title">
-                <a href="/property-app" className="headerIcon">
-                    <HomeOutlinedIcon 
-                        style={{ fontSize: 80 }}
-                    />
+                <a href="/property-app">
+                    <img src={process.env.PUBLIC_URL + "/images/header/homelee.png"} />
                 </a>
-                <h1>Prime Pad</h1>
             </div>
             <div id="savedLinkCont">
                 <Link to="/saved" id="headerSaved">
