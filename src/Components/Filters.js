@@ -6,83 +6,64 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-      width: theme.spacing(16),
-      height: theme.spacing(16),
-    },
-  },
-}));
-
+import { FormatAlignCenterOutlined } from "@material-ui/icons";
 
 
 function Filters(props) {
-    const classes = useStyles();
 
     return (
         <div id="filters">
             <h3 id="startSearch">start your search</h3>
-            <FormControl className={classes.formControl + " indiFilter"}>
-                <InputLabel id="demo-simple-select-label">Min Price:</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select" 
-                    name="minPrice"
-                    value={props.minPriceValue} 
-                    onChange={props.handleChange}
-                >
-                    {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl + " indiFilter"}>
-                <InputLabel id="demo-simple-select-label">Max Price:</InputLabel>
-                <Select 
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    name="maxPrice"
-                    value={props.maxPriceValue} 
-                    onChange={props.handleChange}
-                >
-                    {prices.map(price => <MenuItem key={price.price} value={price.price}>£{price.price}</MenuItem>)}
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl + " indiFilter"}>
-                <InputLabel id="demo-simple-select-label">Min no. of bedrooms:</InputLabel>
-                <Select 
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    name="minBedrooms"
-                    value={props.minBedroomsValue} 
-                    onChange={props.handleChange}
-                >
-                    {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl + " indiFilter"}>
-                <InputLabel id="demo-simple-select-label">Max no. of bedrooms:</InputLabel>
-                <Select 
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    name="maxBedrooms"
-                    value={props.maxBedroomsValue} 
-                    onChange={props.handleChange}
-                >
-                    {bedrooms.map(num => <MenuItem key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</MenuItem>)}
-                </Select>
-            </FormControl>                   
+            <div id="filterDropdowns">
+                <form className="indiFilter">
+                    <label id="demo-simple-select-label">Min Price:</label>
+                    <select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select" 
+                        name="minPrice"
+                        value={props.minPriceValue} 
+                        onChange={props.handleChange}
+                    >
+                        {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
+                    </select>
+                </form>
+                <form className="indiFilter">
+                    <label id="demo-simple-select-label">Max Price:</label>
+                    <select 
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        name="maxPrice"
+                        value={props.maxPriceValue} 
+                        onChange={props.handleChange}
+                    >
+                        {prices.map(price => <option key={price.price} value={price.price}>£{price.price}</option>)}
+                    </select>
+                </form>
+                <form className="indiFilter">
+                    <label id="demo-simple-select-label">Min no. of bedrooms:</label>
+                    <select 
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        name="minBedrooms"
+                        value={props.minBedroomsValue} 
+                        onChange={props.handleChange}
+                    >
+                        {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
+                    </select>
+                </form>
+                <form className="indiFilter">
+                    <label id="demo-simple-select-label">Max no. of bedrooms:</label>
+                    <select 
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        name="maxBedrooms"
+                        value={props.maxBedroomsValue} 
+                        onChange={props.handleChange}
+                    >
+                        {bedrooms.map(num => <option key={num.bedrooms} value={num.bedrooms}>{num.bedrooms}</option>)}
+                    </select>
+                </form>         
+            </div>          
         </div>
     )
 } 

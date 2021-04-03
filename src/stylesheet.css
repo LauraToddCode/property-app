@@ -108,27 +108,39 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     background-color: white;
     padding: 20px 25px 50px 25px;
     margin-right: 35px;
     border-radius: 6px;
 }
 
+#filterDropdowns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
 #startSearch {
+    margin: 0;
     font-weight: bold;
     font-size: 1.75rem;
 }
 
 .indiFilter {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    margin: 20px 0;
 }
 
 /* NAV TOGGLES */
 
 .navToggles {
-    display: none;
+    display: flex;
     justify-content: space-around;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
 }
 
 .navTab {
@@ -136,13 +148,14 @@ body {
     text-decoration: none;
     color: black;
     font-size: 1.25rem;
-    border-radius: 20px 20px 0 0;
     text-align: center;
-    background-color: #DEDEDE;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
+    color: #8EC7FF;
 }
 
 .active {
-    background-color: white;
+    border-bottom: 5px #8EC7FF solid;
 }
 
 
@@ -156,7 +169,7 @@ body {
     background-color: white;
     padding: 30px 40px 5px 40px;
     margin-bottom: 30px;
-    border-radius: 6px;
+    border-radius: 0 0 6px 6px;
 }
 
 .listViewCardCont {
@@ -179,27 +192,24 @@ body {
     margin: 0;
     color: #8EC7FF;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .listViewTagline {
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin: 0.5em 0;
 }
 
 .listViewDesc {
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .listViewInfoCont {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     background-color: white;
-}
-
-.listViewInfoCont p {
-    font-size: .8rem;
 }
 
 .roomTypes {
@@ -303,4 +313,55 @@ body {
     height: 500px;
     background-color: white;
     position: relative;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 0px) {
+    
+    .listingsContainer {
+        flex-direction: column;
+    }
+
+    #filters {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 760px) {
+    .btn {
+        font-size: 1rem;
+    }
+
+    #filters {
+        height: 210px; 
+        margin-bottom: 45px;
+    }
+    
+    #filterDropdowns {
+        height: 180px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .indiFilter {
+        width: 45%;
+    }
+
+    .listViewList {
+        padding: 30px 30px 5px 30px;
+    }
+
+    .listViewPrice {
+        font-size: 1.25rem;
+    }
+    
+    .listViewTagline {
+        font-size: 1.25rem;
+    }
+    
+    .listViewDesc {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 0px) {
 }
