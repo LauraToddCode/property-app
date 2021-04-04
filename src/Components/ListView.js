@@ -79,7 +79,7 @@ function ListView({ products }) {
 
 
     return (
-        <div className="appContainer">
+        <div className="appContainer listingsContainer">
             <Filters 
                 handleChange={handleChange} 
                 minPriceValue={state.minPrice} 
@@ -87,31 +87,33 @@ function ListView({ products }) {
                 minBedroomsValue={state.minBedrooms} 
                 maxBedroomsValue={state.maxBedrooms}
             />
-            <ToggleViewNav />
-            
-            <div className="MuiPaper-elevation3 listViewList">
-                <FormControl className={classes.formControl + " indiFilter"}>
-                    <InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
-                    <Select 
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        defaultValue="bedsHighToLow"
-                        onChange={handleSort}
-                    >
-                        <MenuItem key="0" value="priceHighToLow">Price - High to Low</MenuItem>
-                        <MenuItem key="1" value="priceLowToHigh">Price - Low to High</MenuItem>
-                        <MenuItem key="2" value="bedsHighToLow">Bedrooms - High to Low</MenuItem>
-                        <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
-                    </Select>
-                </FormControl>
-                {products.map(property => validProperty(property.price, property.bedrooms) && (
-                    <ListViewCard 
-                        key={property.id}
-                        productData={property}
-                    />
-                ))}
+
+            <div>
+                <ToggleViewNav />
+                
+                <div className="listViewList">
+                    <FormControl className={classes.formControl}>
+                        <InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
+                        <Select 
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            defaultValue="bedsHighToLow"
+                            onChange={handleSort}
+                        >
+                            <MenuItem key="0" value="priceHighToLow">Price - High to Low</MenuItem>
+                            <MenuItem key="1" value="priceLowToHigh">Price - Low to High</MenuItem>
+                            <MenuItem key="2" value="bedsHighToLow">Bedrooms - High to Low</MenuItem>
+                            <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
+                        </Select>
+                    </FormControl>
+                    {products.map(property => validProperty(property.price, property.bedrooms) && (
+                        <ListViewCard 
+                            key={property.id}
+                            productData={property}
+                        />
+                    ))}
+                </div>
             </div>
-            
         </div>
     )
 }

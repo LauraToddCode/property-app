@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from '@material-ui/core/Paper';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
@@ -11,13 +10,11 @@ import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions";
 function ListViewCard({ productData, addToSaved, loadCurrentItem }) {
 
     return (
-        <Paper elevation={3} className="listViewCardCont">
-            <div elevation={3} className="listViewImgCont">
-                <img src={productData.mainImg} alt={productData.imgAlt} className="listViewPropertyImg"/>
+        <div className="listViewCardCont">
+            <img src={process.env.PUBLIC_URL + "/images/properties/" + productData.imgs[0]} alt={productData.imgAlt} className="listViewPropertyImg"/>
+            <div className="listViewInfoCont">
                 <p className="listViewPrice">{productData.displayPrice}</p>
-            </div>
-            <div elevation={3} className="listViewInfoCont">
-                <h3>{productData.bedrooms} bed {productData.type} for sale</h3>
+                <p className="listViewTagline">{productData.bedrooms} bed {productData.type} for sale</p>
                 <div className="roomTypes">
                     <div className="indiRoomType">
                         <KingBedIcon />
@@ -32,15 +29,16 @@ function ListViewCard({ productData, addToSaved, loadCurrentItem }) {
                         <p>{productData.livingRooms}</p>
                     </div>
                 </div>
-                <p>{productData.propertyDesc}</p>
-                <Link to={`/property-profile/${productData.id}`} className="btn">
-                    <button onClick={() => loadCurrentItem(productData)}>
-                    FIND OUT MORE <ArrowForwardIosIcon />
-                    </button>
-                </Link>
-                <button onClick={() => addToSaved(productData.id)}>Save</button>
+                <p className="listViewDesc">{productData.propertyDesc}</p>
+
+                <div className="btnsContainer">
+                    <Link to={`/property-profile/${productData.id}`} className="moreBtn btn" onClick={() => loadCurrentItem(productData)}>
+                        find out more
+                    </Link>
+                    <button className="saveBtn btn" onClick={() => addToSaved(productData.id)}>save</button>
+                </div>
             </div>
-        </Paper>
+        </div>
 
     )
 }

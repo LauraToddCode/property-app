@@ -2,37 +2,65 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #4995F3;
+    background-color: #8EC7FF;
     margin: 0;
 }
 
 .appContainer {
-    margin: 0 160px;
+    margin: 0 25px;
+}
+
+label {
+    font-size: 1.25rem;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+select {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 1.25rem;
+    padding: 7px;
+    border-radius: 6px;
+    border: 2px solid #8EC7FF
 }
 
 .btn {
-    height: 40px;
-    width: 180px;
-    font-size: 0.9375rem;
+    height: 100%;
+    font-size: 1.5rem;
     font-weight: 500;
-    border-radius: 28px;
-    padding: 8px 22px;
-    margin-top: 30px;
-    background-color: #4995F3;
-    color: white;
+    border-radius: 6px;
     display: flex;
     place-items: center;
     place-content: center;
     cursor: pointer;
+}
+
+.moreBtn {
+    background-color: #8EC7FF;
+    color: white;
     text-decoration: none;
-    box-shadow: 
-        0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .btn:hover {
-    background-color: #494af3;
+    background-color: #26547C;
+}
+
+.saveBtn:hover {
+    color: white;
+}
+
+.saveBtn {
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #8EC7FF;
+    background-color: white;
+}
+
+.btnsContainer {
+    height: 50px;
+    display: grid;
+    grid-template-columns: 47% 47%;
+    grid-gap: 6%;
 }
 
 /* HEADER */
@@ -40,8 +68,8 @@ body {
 #header {
     color: white;
     display: grid;
-    grid-template-columns: 160px 1fr 1fr 1fr 160px;
-    margin: 15px 0;
+    grid-template-columns: 25px 1fr 1fr 1fr 25px;
+    margin: 15px 0 45px 0;
 }
 
 #title {
@@ -60,6 +88,7 @@ body {
     display: inline-block;
     align-self: flex-end;
     justify-self: flex-end;
+    font-size: 1rem;
 }
 
 #headerSaved {
@@ -89,17 +118,35 @@ body {
 /* FILTERS */
 
 #filters {
-    height: 70px;
+    height: 460px;
+    min-width: 20%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     background-color: white;
-    padding: 20px 0;
-    margin: 20px 0;
+    padding: 20px 25px 50px 25px;
+    margin-right: 35px;
+    border-radius: 6px;
+}
+
+#filterDropdowns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#startSearch {
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    font-size: 1.75rem;
 }
 
 .indiFilter {
-    width: 160px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 /* NAV TOGGLES */
@@ -107,6 +154,8 @@ body {
 .navToggles {
     display: flex;
     justify-content: space-around;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
 }
 
 .navTab {
@@ -114,71 +163,75 @@ body {
     text-decoration: none;
     color: black;
     font-size: 1.25rem;
-    border-radius: 20px 20px 0 0;
     text-align: center;
-    background-color: #DEDEDE;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
+    color: #8EC7FF;
 }
 
 .active {
-    background-color: white;
+    border-bottom: 5px #8EC7FF solid;
 }
 
 
 /* LIST VIEW */
 
+.listingsContainer {
+    display: flex ;
+}
+
 .listViewList {
     background-color: white;
-    padding: 30px 0 5px 0;
+    padding: 30px 40px 5px 40px;
     margin-bottom: 30px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
 }
 
 .listViewCardCont {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0px auto 60px auto;
-    padding: 2rem;
-}
-
-.listViewImgCont {
-    position: relative;
-    width: 45%;
+    display: grid;
+    grid-template-columns: 50% 45%;
+    grid-gap: 5%;
+    padding: 25px;
+    margin: 40px 0;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 }
 
 .listViewPropertyImg {
     width: 100%;
-    border-radius: 4px;
 }
 
 .listViewPrice {
-    position: absolute;
-    top: 1px;
-    right: 16px;
-    font-size: 1.5em;
-    background-color: #F9D030;
-    padding: 15px 20px;
-    border-radius: 55px;
+    margin: 0;
+    color: #8EC7FF;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.listViewTagline {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0.5em 0;
+}
+
+.listViewDesc {
+    font-size: 1rem;
 }
 
 .listViewInfoCont {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 45%;
+    justify-content: space-between;
     background-color: white;
-}
-
-.listViewInfoCont p {
-    font-size: .8rem;
 }
 
 .roomTypes {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .indiRoomType {
@@ -264,18 +317,117 @@ body {
     padding-bottom: 30px;
 }
 
-.saveBtn {
-    background-color: #F9D030;
-}
-
-.saveBtn:hover {
-    background-color: #FBBF41;
-}
-
 /* MAP VIEW */
 
-.mapContainer {
+#mapContainer {
+    background-color: white;
+    padding: 30px;
+}
+
+#mapClipPath {
     height: 500px;
     background-color: white;
-    clip-path: inset(2px 50px 10px 50px);
+    position: relative;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 0px) {
+    
+    .listingsContainer {
+        flex-direction: column;
+    }
+
+    #filters {
+        margin: 0 0 45px 0;
+    }
+    
+    .listViewDesc {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 760px) {
+    .btn {
+        font-size: 1rem;
+    }
+
+    #filters {
+        height: 215px; 
+    }
+    
+    #filterDropdowns {
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+    }
+
+    .indiFilter {
+        width: 45%;
+    }
+
+    .listViewList {
+        padding: 30px 30px 5px 30px;
+    }
+
+    .listViewPrice {
+        font-size: 1.25rem;
+    }
+    
+    .listViewTagline {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 760px) and (min-width: 0px) {
+    #header {
+        grid-template-columns: 25px 1fr 25px;
+        grid-template-rows: 2fr 1fr;
+        margin-bottom: 8px;
+    }
+
+    #title {
+        grid-column: 2/3;
+    }
+
+    #title img {
+        width: calc(100vw - 50px);
+    }
+
+    #savedLinkCont {
+        grid-row: 2/3;
+        grid-column-end: 3;
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    #filters {
+        padding-bottom: 0;
+    }
+
+    .listViewList {
+        padding: 28px 18px 5px 18px;
+    }
+
+    .listViewCardCont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .listViewPrice {
+        margin-top: 10px;
+        text-align: right;
+    }
+
+    .btnsContainer {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .btn {
+        height: 53px;
+    }
+
+    .moreBtn {
+        margin: 25px 0;
+    }
 }

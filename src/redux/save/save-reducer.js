@@ -1,4 +1,3 @@
-import { RedoOutlined } from "@material-ui/icons";
 import * as actionTypes from "./save-types";
 
 const INITIAL_STATE = {
