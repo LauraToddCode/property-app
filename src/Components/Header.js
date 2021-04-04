@@ -13,11 +13,9 @@ function Header({ savedItems }) {
 
     return (
         <header id="header">
-            <div id="title">
-                <a href="/property-app">
-                    <img src={process.env.PUBLIC_URL + "/images/header/homelee.png"} />
-                </a>
-            </div>
+            <a href="/property-app" id="title">
+                <img src={process.env.PUBLIC_URL + "/images/header/homelee.png"} />
+            </a>
             <div id="savedLinkCont">
                 <Link to="/saved" id="headerSaved">
                     Saved Properties ({savedCount})
