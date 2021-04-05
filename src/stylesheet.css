@@ -8,6 +8,7 @@ body {
 
 .appContainer {
     margin: 0 25px;
+    display: flex;
 }
 
 label {
@@ -176,10 +177,6 @@ select {
 
 /* LIST VIEW */
 
-.listingsContainer {
-    display: flex ;
-}
-
 .listViewList {
     background-color: white;
     padding: 30px 40px 5px 40px;
@@ -294,30 +291,110 @@ select {
 /* PROPERTY PROFILE */
 
 .profileContainer {
-    padding: 3rem;
+    margin: 0 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePanel {
+    background-color: white;
+    border-radius: 6px;
+    padding: 30px;
 }
 
 .carousel {
-    width: 50%;
+    width: 100%;
 }
 
 .carouselImg {
     width: 100%;
 }
 
+.propertyProfileImg {
+    width: 50%;
+}
+
+#profilePrice {
+    font-size: 1.75rem;
+    color: #8EC7FF;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#profileTagline {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
 .profileTop {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
 }
 
 .profileMainDetails {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
     margin: 0 0 0 30px;
     padding-bottom: 30px;
 }
 
+.roomTypeIcon {
+    margin-right: 20px;
+}
+
+#profileBtnsCont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileSaveBtn {
+    margin-bottom: 20px;
+    height: 50px;
+    width: 50%;
+}
+
+.contactBtn {
+    background-color: #8EC7FF;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 50%;
+}
+
+.mobileRooms {
+    display: none;
+}
+
+.profileFeaturesDesc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.featuresDesc {
+    width: 50%;
+    font-size: 1rem;
+}
+
+.featureList {
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
 /* MAP VIEW */
+
+#mapPanel {
+    width: 100%;
+}
 
 #mapContainer {
     background-color: white;
@@ -332,7 +409,7 @@ select {
 
 @media screen and (max-width: 1050px) and (min-width: 0px) {
     
-    .listingsContainer {
+    .appContainer {
         flex-direction: column;
     }
 
@@ -342,6 +419,14 @@ select {
     
     .listViewDesc {
         display: none;
+    }
+
+    .desktopRooms {
+        display: none;
+    }
+
+    .mobileRooms {
+        display: flex;
     }
 }
 
@@ -429,5 +514,11 @@ select {
 
     .moreBtn {
         margin: 25px 0;
+    }
+
+    #mapContainer {
+        padding: 28px 18px 45px 18px;
+        margin-bottom: 30px;
+        border-radius: 0 0 6px 6px;
     }
 }

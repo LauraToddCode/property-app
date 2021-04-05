@@ -35,7 +35,7 @@ function ListViewCard({ productData, addToSaved, loadCurrentItem }) {
                     <Link to={`/property-profile/${productData.id}`} className="moreBtn btn" onClick={() => loadCurrentItem(productData)}>
                         find out more
                     </Link>
-                    <button className="saveBtn btn" onClick={() => addToSaved(productData.id)}>save</button>
+                    <button className="saveBtn profileSaveBtn btn" onClick={() => addToSaved(productData.id)}>save</button>
                 </div>
             </div>
         </div>

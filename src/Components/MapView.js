@@ -4,14 +4,42 @@ import Map from "./MapView/Map"
 import ToggleViewNav from "./ToggleViewNav";
 
 function MapView() {
+
+    const [state, setState] = React.useState({
+        minPrice: 0,
+        maxPrice: 1000000,
+        minBedrooms: 1,
+        maxBedrooms: 10
+    })
+
+    function handleChange(evt) {
+        const value = evt.target.value;
+        setState({
+          ...state,
+          [evt.target.name]: value
+        });
+    }
+
+    // conditions for a property to be valid within parameters of filters
+    const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
+
     return (
         <div className="appContainer">
-            <ToggleViewNav />
+            <Filters 
+                handleChange={handleChange} 
+                minPriceValue={state.minPrice} 
+                maxPriceValue={state.maxPrice} 
+                minBedroomsValue={state.minBedrooms} 
+                maxBedroomsValue={state.maxBedrooms}
+            />
+            <div id="mapPanel">
+                <ToggleViewNav />
                 <div id="mapContainer">
                     <div id="mapClipPath">
                         <Map />
                     </div>
                 </div>
+            </div>
         </div>
     )
 }

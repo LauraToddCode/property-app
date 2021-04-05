@@ -14,8 +14,8 @@ function MapComponent() {
     
     return (
         <GoogleMap 
-            defaultZoom={13}
-            defaultCenter={{ lat: 51.232712, lng: -0.540188 }}
+            defaultZoom={12}
+            defaultCenter={{ lat: 51.23651480350905, lng: -0.5703780104611352 }}
         >
             {properties.map((property) => (
                 <Marker 
@@ -28,7 +28,7 @@ function MapComponent() {
                         setSelectedProperty(property);
                     }}
                     icon={{
-                        url: "/images/header/houseIcon.png",
+                        url: "/images/mapIcon/houseIcon.png",
                         scaledSize: new window.google.maps.Size(25, 25)
                     }}
                 />

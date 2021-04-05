@@ -79,7 +79,7 @@ function ListView({ products }) {
 
 
     return (
-        <div className="appContainer listingsContainer">
+        <div className="appContainer">
             <Filters 
                 handleChange={handleChange} 
                 minPriceValue={state.minPrice} 
