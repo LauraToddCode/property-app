@@ -24,3 +24,31 @@ export const loadCurrentItem = (item) => {
         payload: item
     }
 }
+
+export const getMinPriceValue = (value) => {
+    return {
+        type: actionTypes.GET_MINPRICE_VALUE,
+        payload: value
+    }
+}
+
+export const getMaxPriceValue = (value) => {
+    return {
+        type: actionTypes.GET_MAXPRICE_VALUE,
+        payload: value
+    }
+}
+
+export const getMinBedsValue = (value) => {
+    return {
+        type: actionTypes.GET_MINBEDS_VALUE,
+        payload: value
+    }
+}
+
+export const getMaxBedsValue = (value) => {
+    return {
+        type: actionTypes.GET_MAXBEDS_VALUE,
+        payload: value
+    }
+}

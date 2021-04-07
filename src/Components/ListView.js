@@ -30,27 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ListView({ products }) {
+function ListView({ products, minPrice, maxPrice, minBedrooms, maxBedrooms }) {
     const classes = useStyles();
 
-    const [state, setState] = React.useState({
-        minPrice: 0,
-        maxPrice: 1000000,
-        minBedrooms: 1,
-        maxBedrooms: 10
-    })
-
-    function handleChange(evt) {
-        const value = evt.target.value;
-        setState({
-          ...state,
-          [evt.target.name]: value
-        });
-    }
-
     // conditions for a property to be valid within parameters of filters
-    const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
-
+    const validProperty = (price, beds) => price >= minPrice && price <= maxPrice && beds >= minBedrooms && beds <= maxBedrooms
 
     // set state for 'sort' dropdown
     const [sortedProperties, setSortedProperties] = React.useState(products)
@@ -80,13 +64,7 @@ function ListView({ products }) {
 
     return (
         <div className="appContainer">
-            <Filters 
-                handleChange={handleChange} 
-                minPriceValue={state.minPrice} 
-                maxPriceValue={state.maxPrice} 
-                minBedroomsValue={state.minBedrooms} 
-                maxBedroomsValue={state.maxBedrooms}
-            />
+            <Filters />
 
             <div>
                 <ToggleViewNav />
@@ -120,7 +98,11 @@ function ListView({ products }) {
 
 const mapStateToProps = state => {
     return {
-        products: state.save.products
+        products: state.save.products,
+        minPrice: state.save.minPrice,
+        maxPrice: state.save.maxPrice,
+        minBedrooms: state.save.minBedrooms,
+        maxBedrooms: state.save.maxBedrooms
     }
 }
 

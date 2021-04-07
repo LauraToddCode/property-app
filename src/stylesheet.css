@@ -407,6 +407,16 @@ select {
     position: relative;
 }
 
+.infoWindow {
+    width: 300px;
+    padding: 5px;
+    display: flex;
+}
+
+.windowInfoImg {
+    width: 150px;
+}
+
 @media screen and (max-width: 1050px) and (min-width: 0px) {
     
     .appContainer {

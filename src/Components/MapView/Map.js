@@ -8,8 +8,13 @@ import {
 } from "react-google-maps";
 import properties from "../properties.json";
 import MarkerInfo from "./MarkerInfo";
+import { connect } from "react-redux";
+import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions";
 
-function MapComponent() {
+function MapComponent({ minPrice, maxPrice, minBedrooms, maxBedrooms, addToSaved, loadCurrentItem }) {
+
+    const validProperty = (price, beds) => price >= minPrice && price <= maxPrice && beds >= minBedrooms && beds <= maxBedrooms;
+
     const [selectedProperty, setSelectedProperty] = useState(null);
     
     return (
@@ -17,7 +22,7 @@ function MapComponent() {
             defaultZoom={12}
             defaultCenter={{ lat: 51.23651480350905, lng: -0.5703780104611352 }}
         >
-            {properties.map((property) => (
+            {properties.map((property) => validProperty(property.price, property.bedrooms) && (
                 <Marker 
                     key={property.id} 
                     position={{
@@ -45,9 +50,16 @@ function MapComponent() {
                     }}
                 >
                     <MarkerInfo 
-                        img={selectedProperty.imgs[0]} 
-                        beds={selectedProperty.bedrooms} 
-                        type={selectedProperty.type}     
+                        key={selectedProperty.id}
+                        id={selectedProperty.id}
+                        img={selectedProperty.imgs[0]}
+                        price={selectedProperty.displayPrice}
+                        type={selectedProperty.type}
+                        beds={selectedProperty.bedrooms}
+                        baths={selectedProperty.bathrooms}
+                        living={selectedProperty.livingRooms}
+                        findOutMore={() => loadCurrentItem(selectedProperty)}
+                        saveItem={() => addToSaved(selectedProperty.id)}
                     />
                 </InfoWindow>
             )}
@@ -55,7 +67,23 @@ function MapComponent() {
     )
 }
 
-const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
+const mapStateToProps = state => {
+    return {
+        minPrice: state.save.minPrice,
+        maxPrice: state.save.maxPrice,
+        minBedrooms: state.save.minBedrooms,
+        maxBedrooms: state.save.maxBedrooms
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addToSaved: (id) => dispatch(addToSaved(id)),
+        loadCurrentItem: (item) => dispatch(loadCurrentItem(item))
+    }
+}
+
+const WrappedMap = connect(mapStateToProps, mapDispatchToProps)(withScriptjs(withGoogleMap(MapComponent)));
 
 function Map() {
     return (
