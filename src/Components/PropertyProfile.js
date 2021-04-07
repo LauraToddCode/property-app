@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from '@material-ui/core/Paper';
 import Carousel from 'react-material-ui-carousel';
 import { Link } from "react-router-dom";
 import CallIcon from '@material-ui/icons/Call';
