@@ -5,14 +5,6 @@ import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
 import { Link } from "react-router-dom";
 
-function renderMarkerContent(id, findOutMore) {
-    return ReactDOMServer.renderToString(
-        <Link to={`/property-profile/${id}`} className="moreBtn btn" onClick={findOutMore}>
-            find out more
-        </Link>
-    )
-}
-
 function MarkerInfo(props) {
     return (
         <div className="infoWindow">
@@ -37,7 +29,9 @@ function MarkerInfo(props) {
                     </div>
                 </div>
                 <div className="btnsContainer">
-                    {renderMarkerContent(props.id, props.findOutMore)}
+                    <Link to={`/property-profile/${props.id}`} className="moreBtn btn" onClick={props.findOutMore}>
+                        find out more
+                    </Link>
                     <button className="saveBtn profileSaveBtn btn" onClick={props.saveItem}>save</button>
                 </div>
             </div>
