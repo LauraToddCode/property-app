@@ -1,7 +1,7 @@
 import * as actionTypes from "./save-types";
 
 const INITIAL_STATE = {
-    products: [
+    properties: [
         {
             "id": "0",
             "lat": "51.232712",
@@ -52,14 +52,18 @@ const INITIAL_STATE = {
         }
     ],
     savedItems: [],
-    currentItem: null
+    currentItem: null,
+    minPrice: 0,
+    maxPrice: 1000000,
+    minBedrooms: 1,
+    maxBedrooms: 10
 }
 
 const saveReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case actionTypes.ADD_TO_SAVED:
             // Get the items data from the products array
-            const item = state.products.find(prod => prod.id === action.payload.id)
+            const item = state.properties.find(prod => prod.id === action.payload.id)
             // Check if the item is saved already
             const alreadySaved = state.savedItems.find(item => 
                 item.id === action.payload.id ? true : false
@@ -85,6 +89,26 @@ const saveReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentItem: action.payload,
             };
+        case actionTypes.GET_MINPRICE_VALUE:
+            return {
+                ...state,
+                minPrice: action.payload,
+            }
+        case actionTypes.GET_MAXPRICE_VALUE:
+            return {
+                ...state,
+                maxPrice: action.payload,
+            }
+        case actionTypes.GET_MINBEDS_VALUE:
+            return {
+                ...state,
+                minBedrooms: action.payload,
+            }
+        case actionTypes.GET_MAXBEDS_VALUE:
+            return {
+                ...state,
+                maxBedrooms: action.payload,
+            }
         default:
             return state;
     }

@@ -1,5 +1,4 @@
 import React from "react";
-import properties from "./properties.json";
 import ListViewCard from "./ListView/ListViewCard";
 import ToggleViewNav from "./ToggleViewNav";
 import Filters from "./Filters";
@@ -30,48 +29,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ListView({ products }) {
+function ListView({ properties, minPrice, maxPrice, minBedrooms, maxBedrooms }) {
     const classes = useStyles();
 
-    const [state, setState] = React.useState({
-        minPrice: 0,
-        maxPrice: 1000000,
-        minBedrooms: 1,
-        maxBedrooms: 10
-    })
-
-    function handleChange(evt) {
-        const value = evt.target.value;
-        setState({
-          ...state,
-          [evt.target.name]: value
-        });
-    }
-
     // conditions for a property to be valid within parameters of filters
-    const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
-
+    const validProperty = (price, beds) => price >= minPrice && price <= maxPrice && beds >= minBedrooms && beds <= maxBedrooms
 
     // set state for 'sort' dropdown
-    const [sortedProperties, setSortedProperties] = React.useState(products)
+    const [sortedProperties, setSortedProperties] = React.useState(properties)
 
     const handleSort = (event) => {
         let sortBy = event.target.value
         let sorted = []
         if (sortBy == "priceHighToLow") {
-            sorted = products.sort((a, b) => (b["price"] > a["price"]) ? 1 : ((a["price"] > b["price"]) ? -1 : 0))
+            sorted = properties.sort((a, b) => (b["price"] > a["price"]) ? 1 : ((a["price"] > b["price"]) ? -1 : 0))
             console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "priceLowToHigh") {
-            sorted = products.sort((a, b) => (a["price"] > b["price"]) ? 1 : ((b["price"] > a["price"]) ? -1 : 0))
+            sorted = properties.sort((a, b) => (a["price"] > b["price"]) ? 1 : ((b["price"] > a["price"]) ? -1 : 0))
             console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "bedsHighToLow") {
-            sorted = products.sort((a, b) => (b["bedrooms"] > a["bedrooms"]) ? 1 : ((a["bedrooms"] > b["bedrooms"]) ? -1 : 0))
+            sorted = properties.sort((a, b) => (b["bedrooms"] > a["bedrooms"]) ? 1 : ((a["bedrooms"] > b["bedrooms"]) ? -1 : 0))
             console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         } else if (sortBy == "bedsLowToHigh") {
-            sorted = products.sort((a, b) => (a["bedrooms"] > b["bedrooms"]) ? 1 : ((b["bedrooms"] > a["bedrooms"]) ? -1 : 0))
+            sorted = properties.sort((a, b) => (a["bedrooms"] > b["bedrooms"]) ? 1 : ((b["bedrooms"] > a["bedrooms"]) ? -1 : 0))
             console.log(sorted)
             setSortedProperties({sortedProperties: sorted})
         }
@@ -80,13 +63,7 @@ function ListView({ products }) {
 
     return (
         <div className="appContainer">
-            <Filters 
-                handleChange={handleChange} 
-                minPriceValue={state.minPrice} 
-                maxPriceValue={state.maxPrice} 
-                minBedroomsValue={state.minBedrooms} 
-                maxBedroomsValue={state.maxBedrooms}
-            />
+            <Filters />
 
             <div>
                 <ToggleViewNav />
@@ -106,10 +83,10 @@ function ListView({ products }) {
                             <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
                         </Select>
                     </FormControl>
-                    {products.map(property => validProperty(property.price, property.bedrooms) && (
+                    {properties.map(property => validProperty(property.price, property.bedrooms) && (
                         <ListViewCard 
                             key={property.id}
-                            productData={property}
+                            propertyData={property}
                         />
                     ))}
                 </div>
@@ -120,7 +97,11 @@ function ListView({ products }) {
 
 const mapStateToProps = state => {
     return {
-        products: state.save.products
+        properties: state.save.properties,
+        minPrice: state.save.minPrice,
+        maxPrice: state.save.maxPrice,
+        minBedrooms: state.save.minBedrooms,
+        maxBedrooms: state.save.maxBedrooms
     }
 }
 
