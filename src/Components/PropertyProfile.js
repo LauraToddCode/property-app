@@ -94,7 +94,14 @@ function PropertyProfile({ currentItem, addToSaved }) {
                         </div>
                     </div>
             </div>
-            <MortgageCalculator/>
+            <MortgageCalculator propertyPrice={currentItem.price} />
+            <div id="modalBackground">
+                <div id="contactModal">
+                    <button id="closeModal">x</button>
+                    If Homelee were a real company we're provide details of the agent here but unfortunately it's not. So we can't.
+                    <img src={process.env.PUBLIC_URL + "/images/modal/modalImg.png"} id="modalImg" />
+                </div>
+            </div>
         </div>
     )
 }
