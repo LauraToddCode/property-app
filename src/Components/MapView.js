@@ -20,9 +20,6 @@ function MapView() {
         });
     }
 
-    // conditions for a property to be valid within parameters of filters
-    const validProperty = (price, beds) => price >= state.minPrice && price <= state.maxPrice && beds >= state.minBedrooms && beds <= state.maxBedrooms
-
     return (
         <div className="appContainer">
             <Filters 

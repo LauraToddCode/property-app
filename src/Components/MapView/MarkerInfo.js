@@ -1,11 +1,15 @@
 import React from "react";
-import ReactDOMServer from 'react-dom/server';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
-import { Link } from "react-router-dom";
 
 function MarkerInfo(props) {
+
+    function redirectToProfilePage(event) {
+		event.preventDefault();
+		props.findOutMore(event.currentTarget.getAttribute('href'));
+	}
+
     return (
         <div className="infoWindow">
             <div>
@@ -29,9 +33,10 @@ function MarkerInfo(props) {
                     </div>
                 </div>
                 <div className="btnsContainer">
-                    <Link to={`/property-profile/${props.id}`} className="moreBtn btn" onClick={props.findOutMore}>
+                    <a href={`/property-profile/${props.id}`} className="moreBtn btn" onClick={redirectToProfilePage}>
                         find out more
-                    </Link>
+                    </a>
+
                     <button className="saveBtn profileSaveBtn btn" onClick={props.saveItem}>save</button>
                 </div>
             </div>

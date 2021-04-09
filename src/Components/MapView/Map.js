@@ -10,13 +10,21 @@ import properties from "../properties.json";
 import MarkerInfo from "./MarkerInfo";
 import { connect } from "react-redux";
 import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions";
+import { useHistory } from "react-router-dom";
+
 
 function MapComponent({ minPrice, maxPrice, minBedrooms, maxBedrooms, addToSaved, loadCurrentItem }) {
-
+    const history = useHistory();
     const validProperty = (price, beds) => price >= minPrice && price <= maxPrice && beds >= minBedrooms && beds <= maxBedrooms;
 
     const [selectedProperty, setSelectedProperty] = useState(null);
     
+    function redirectToPropertyPage(href) {
+        loadCurrentItem(selectedProperty);
+        history.push(href);
+    }
+
+
     return (
         <GoogleMap 
             defaultZoom={12}
@@ -58,7 +66,7 @@ function MapComponent({ minPrice, maxPrice, minBedrooms, maxBedrooms, addToSaved
                         beds={selectedProperty.bedrooms}
                         baths={selectedProperty.bathrooms}
                         living={selectedProperty.livingRooms}
-                        findOutMore={() => loadCurrentItem(selectedProperty)}
+                        findOutMore={redirectToPropertyPage}
                         saveItem={() => addToSaved(selectedProperty.id)}
                     />
                 </InfoWindow>
