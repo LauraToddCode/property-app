@@ -1,7 +1,7 @@
 import * as actionTypes from "./save-types";
 
 const INITIAL_STATE = {
-    products: [
+    properties: [
         {
             "id": "0",
             "lat": "51.232712",
@@ -63,7 +63,7 @@ const saveReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case actionTypes.ADD_TO_SAVED:
             // Get the items data from the products array
-            const item = state.products.find(prod => prod.id === action.payload.id)
+            const item = state.properties.find(prod => prod.id === action.payload.id)
             // Check if the item is saved already
             const alreadySaved = state.savedItems.find(item => 
                 item.id === action.payload.id ? true : false
