@@ -49,8 +49,8 @@
     },
     {
         "id": "3",
-        "lat": "51.206777",
-        "lng": "-0.563556",
+        "lat": 51.206777,
+        "lng": -0.563556,
         "imgs": ["property-4-1.jpg"],
         "imgAlt": "property 4 image",
         "displayPrice": "£100,000",
@@ -65,8 +65,8 @@
     },
     {
         "id": "4",
-        "lat": "51.221523",
-        "lng": "-0.596995",
+        "lat": 51.221523,
+        "lng": -0.596995,
         "imgs": ["property-5-1.jpg"],
         "imgAlt": "property 5 image",
         "displayPrice": "£200,000",
