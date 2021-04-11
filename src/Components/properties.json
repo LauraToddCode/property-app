@@ -46,5 +46,37 @@
         "livingRooms": 1,
         "address": "an address, somewhere",
         "features": ["garden", "swimming pool", "underfloor heating", "cinema room", "state of the art kitchen"]
+    },
+    {
+        "id": "3",
+        "lat": "51.206777",
+        "lng": "-0.563556",
+        "imgs": ["property-4-1.jpg"],
+        "imgAlt": "property 4 image",
+        "displayPrice": "£100,000",
+        "price": 100000,
+        "propertyDesc": "Cosy 1 bedroom detatched property featuring a complete lack of plumbing.",
+        "type": "detached house",
+        "bedrooms": 1,
+        "bathrooms": 0,
+        "livingRooms": 1,
+        "address": "an address, somewhere",
+        "features": ["detached", "quiet area", "plenty of outside space"]
+    },
+    {
+        "id": "4",
+        "lat": "51.221523",
+        "lng": "-0.596995",
+        "imgs": ["property-5-1.jpg"],
+        "imgAlt": "property 5 image",
+        "displayPrice": "£200,000",
+        "price": 200000,
+        "propertyDesc": "Detached house with plenty of character. In need of some repair.",
+        "type": "detached house",
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "livingRooms": 1,
+        "address": "an address, somewhere",
+        "features": ["glass in almost all windows", "quirky character", "plenty of outside space"]
     }
 ]
