@@ -1,7 +1,4 @@
-import React from "react";
-import ListViewCard from "./ListView/ListViewCard";
-import ToggleViewNav from "./ToggleViewNav";
-import Filters from "./Filters";
+import React, { Suspense, lazy } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -9,6 +6,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { connect } from "react-redux";
 
+const Filters = lazy(() => import("./Filters"));
+const ToggleViewNav = lazy(() => import("./ToggleViewNav"));
+const ListViewCard = lazy(() => import("./ListView/ListViewCard"));
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -51,34 +51,35 @@ function ListView({ properties, minPrice, maxPrice, minBedrooms, maxBedrooms }) 
 
     return (
         <div className="appContainer">
-            <Filters />
-
-            <div>
-                <ToggleViewNav />
-                
-                <div className="listViewList">
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
-                        <Select 
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            defaultValue="bedsHighToLow"
-                            onChange={handleSort}
-                        >
-                            <MenuItem key="0" value="priceHighToLow">Price - High to Low</MenuItem>
-                            <MenuItem key="1" value="priceLowToHigh">Price - Low to High</MenuItem>
-                            <MenuItem key="2" value="bedsHighToLow">Bedrooms - High to Low</MenuItem>
-                            <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
-                        </Select>
-                    </FormControl>
-                    {properties.map(property => validProperty(property.price, property.bedrooms) && (
-                        <ListViewCard 
-                            key={property.id}
-                            propertyData={property}
-                        />
-                    ))}
+            <Suspense fallback={<div></div>}>
+                <Filters />
+                <div>
+                    <ToggleViewNav />
+                    
+                    <div className="listViewList">
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
+                            <Select 
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                defaultValue="bedsHighToLow"
+                                onChange={handleSort}
+                            >
+                                <MenuItem key="0" value="priceHighToLow">Price - High to Low</MenuItem>
+                                <MenuItem key="1" value="priceLowToHigh">Price - Low to High</MenuItem>
+                                <MenuItem key="2" value="bedsHighToLow">Bedrooms - High to Low</MenuItem>
+                                <MenuItem key="3" value="bedsLowToHigh">Bedrooms - Low to High</MenuItem>
+                            </Select>
+                        </FormControl>
+                        {properties.map(property => validProperty(property.price, property.bedrooms) && (
+                            <ListViewCard 
+                                key={property.id}
+                                propertyData={property}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Suspense>
         </div>
     )
 }

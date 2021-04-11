@@ -1,7 +1,8 @@
-import React from "react";
-import Filters from "./Filters";
-import Map from "./MapView/Map"
-import ToggleViewNav from "./ToggleViewNav";
+import React, { Suspense, lazy } from "react";
+
+const Filters = lazy(() => import("./Filters"));
+const ToggleViewNav = lazy(() => import("./ToggleViewNav"));
+const Map = lazy(() => import("./MapView/Map"));
 
 function MapView() {
 
@@ -22,21 +23,23 @@ function MapView() {
 
     return (
         <div className="appContainer">
-            <Filters 
-                handleChange={handleChange} 
-                minPriceValue={state.minPrice} 
-                maxPriceValue={state.maxPrice} 
-                minBedroomsValue={state.minBedrooms} 
-                maxBedroomsValue={state.maxBedrooms}
-            />
-            <div id="mapPanel">
-                <ToggleViewNav />
-                <div id="mapContainer">
-                    <div id="mapClipPath">
-                        <Map />
+            <Suspense fallback={<div></div>}>
+                <Filters 
+                    handleChange={handleChange} 
+                    minPriceValue={state.minPrice} 
+                    maxPriceValue={state.maxPrice} 
+                    minBedroomsValue={state.minBedrooms} 
+                    maxBedroomsValue={state.maxBedrooms}
+                />
+                <div id="mapPanel">
+                    <ToggleViewNav />
+                    <div id="mapContainer">
+                        <div id="mapClipPath">
+                            <Map />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Suspense>
         </div>
     )
 }
