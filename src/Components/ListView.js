@@ -15,18 +15,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       minWidth: 120,
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing(16),
-        height: theme.spacing(16),
-      },
-    },
 }));
 
 function ListView({ properties, minPrice, maxPrice, minBedrooms, maxBedrooms }) {

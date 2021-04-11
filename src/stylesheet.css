@@ -64,6 +64,45 @@ select {
     grid-gap: 6%;
 }
 
+/* BACK BTN */
+
+#backBtn {
+    display: flex;
+    align-self: flex-end;
+    justify-self: flex-end;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #8EC7FF;
+    position: relative;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#backBtn span {
+    margin-left: 10px;
+}
+
+#backBtn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #8EC7FF;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+  
+#backBtn:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
 /* HEADER */
 
 #header {
@@ -227,7 +266,6 @@ select {
 .roomTypes {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     margin: 5px 0;
 }
 
@@ -235,6 +273,10 @@ select {
     display: flex;
     height: 32px;
     align-items: center;
+}
+
+.indiRoomType:not(:first-child) {
+    margin-left: 3rem;
 }
 
 .indiRoomType p {
@@ -311,7 +353,7 @@ select {
 }
 
 .propertyProfileImg {
-    width: 50%;
+    width: 100%;
 }
 
 #profilePrice {
@@ -366,6 +408,12 @@ select {
     margin-bottom: 20px;
     height: 50px;
     width: 50%;
+    border: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.desktopRooms {
+    justify-content: space-between;
 }
 
 .mobileRooms {
@@ -393,29 +441,47 @@ select {
 /* CONTACT MODAL */
 
 #modalBackground {
-    /* display: none; /* Hidden by default */
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
-    background-color: rgba(0,0,0,0.1); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
 
 #contactModal {
     width: 40%;
     height: auto;
-    background-color: white;
+    background-color: #8EC7FF;
     border-radius: 6px;
     margin: 10% auto;
-    padding: 10px;
+    padding: 20px 20px 30px 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#closeModal {
+    align-self: flex-end;
+    background-color: #8EC7FF;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 #modalImg {
-    height: 200px;
+    width: 250px;
 }
 
 /* MAP VIEW */
@@ -441,8 +507,106 @@ select {
     display: flex;
 }
 
+.infoCol1 { 
+    width: 52%;
+}
+
+.infoCol2 {
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.infoCol1 {
+    margin-right: 4%;
+}
+
 .windowInfoImg {
-    width: 150px;
+    width: 100%;
+}
+
+.infoWindowPrice {
+    color: #8EC7FF;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.infoWindowBtnsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoWindowBtns {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.infoWindowBtns:hover {
+    background-color: #26547C;
+}
+
+.infoRoomTypes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infoRoomType {
+    display: flex;
+    height: 32px;
+    align-items: center;
+}
+
+.infoRoomType p {
+    margin-left: 5px;
+}
+
+/* SAVED */
+
+#savedContainer {
+    margin: 0 6rem;
+    background-color: white;
+    border-radius: 6px;
+    padding: 30px;
+}
+
+.savedMessage {
+    color: #8EC7FF;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.savedBtnsContainer {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-gap: 15%;
+    height: 50px;
+}
+
+.savedMoreBtn {
+    background-color: #8EC7FF;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    height: 100%;
+    border: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.deleteBtn {
+    background-color: #8EC7FF;
+    border: none;
+    height: 100%;
 }
 
 @media screen and (max-width: 1050px) and (min-width: 0px) {
@@ -464,8 +628,26 @@ select {
     }
 
     .mobileRooms {
-        display: flex;
+        display: flex;      
+        justify-content: space-around;
     }
+
+    #savedContainer {
+        margin: 0 25px;
+    }
+
+    .savedBtnsContainer {
+        height: 30px;
+    }
+
+    .savedMoreBtn {
+        margin: 0
+    }
+
+    .featureList {
+        height: auto;
+    }
+
 }
 
 @media screen and (max-width: 1050px) and (min-width: 760px) {
@@ -554,9 +736,83 @@ select {
         margin: 25px 0;
     }
 
+    .indiRoomType p {
+        display: none;
+    }
+
     #mapContainer {
         padding: 28px 18px 45px 18px;
         margin-bottom: 30px;
         border-radius: 0 0 6px 6px;
+    }
+
+    .infoWindow {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .infoCol1, .infoCol2 {
+        margin-right: 0;
+        width: 95%
+    }
+
+    .infoTagLine {
+        display: none;
+    }
+
+    .infoRoomTypes {
+        flex-direction: column;
+    }
+
+    .infoWindowBtns {
+        margin: 5px 0;
+    }
+
+    .savedBtnsContainer {
+        margin-top: 20px;
+        height: 53px;
+    }
+
+    #contactModal {
+        width: 80%;
+    }
+
+    .profileTop {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profileMainDetails {
+        margin: 0;
+    }
+
+    .contactBtn {
+        width: 100%;
+    }
+
+    .profileSaveBtn {
+        width: 100%
+    }
+
+    .profileFeaturesDesc {
+        flex-direction: column;
+    }
+
+    .featuresDesc {
+        width: 100%;
+    }
+
+    .radioResultContainer {
+        flex-direction: column;
+    }
+
+    #mortgageCalc h2 {
+        text-align: center;
+    }
+
+    .mortgageChartContainer {
+        width: 100%;
+        height: auto;
+        margin: 40px 0;
     }
 }

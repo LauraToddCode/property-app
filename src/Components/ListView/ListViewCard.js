@@ -10,7 +10,11 @@ function ListViewCard({ propertyData, addToSaved, loadCurrentItem }) {
 
     return (
         <div className="listViewCardCont">
-            <img src={process.env.PUBLIC_URL + "/images/properties/" + propertyData.imgs[0]} alt={propertyData.imgAlt} className="listViewPropertyImg"/>
+            <img 
+                src={process.env.PUBLIC_URL + "/images/properties/" + propertyData.imgs[0]} 
+                alt={propertyData.imgAlt} 
+                className="listViewPropertyImg"
+            />
             <div className="listViewInfoCont">
                 <p className="listViewPrice">{propertyData.displayPrice}</p>
                 <p className="listViewTagline">{propertyData.bedrooms} bed {propertyData.type} for sale</p>
@@ -34,7 +38,7 @@ function ListViewCard({ propertyData, addToSaved, loadCurrentItem }) {
                     <Link to={`/property-profile/${propertyData.id}`} className="moreBtn btn" onClick={() => loadCurrentItem(propertyData)}>
                         find out more
                     </Link>
-                    <button className="saveBtn profileSaveBtn btn" onClick={() => addToSaved(propertyData.id)}>save</button>
+                    <button className="saveBtn btn" onClick={() => addToSaved(propertyData.id)}>save</button>
                 </div>
             </div>
         </div>

@@ -94,7 +94,7 @@ function MortgageCalculator(props) {
 
     return (
         <Paper elevation={3} className={classes.root + " mortgageCalculator"}>
-            <div>
+            <div id="mortgageCalc">
                 <h2>Mortgage Calculator</h2>
                 <div>
                     <div className={classes.root}>
