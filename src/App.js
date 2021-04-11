@@ -17,12 +17,12 @@ function App({ currentItem }) {
                     <Switch>
                         <Route exact path="/property-app" component={ ListView } />
                         <Route exact path="/map-view" component={ MapView } />
+                        <Route exact path="/saved" component= { Saved } />
                         {!currentItem ? (
                             <Redirect to="/property-app" />
                         ): (
                             <Route exact path="/property-profile/:id" component= { PropertyProfile } />
                         )}
-                        <Route exact path="/saved" component= { Saved } />
                     </Switch>
             </div>
         </Router>
@@ -30,7 +30,6 @@ function App({ currentItem }) {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         currentItem: state.save.currentItem
     }
