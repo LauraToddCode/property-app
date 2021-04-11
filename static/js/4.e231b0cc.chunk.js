@@ -1,0 +1,2 @@
+(this["webpackJsonpproperty-app"]=this["webpackJsonpproperty-app"]||[]).push([[4],{351:function(e,a,p){"use strict";p.r(a);p(0);var s=p(15),c=p(4);a.default=function(){return Object(c.jsxs)("div",{className:"navToggles",children:[Object(c.jsx)(s.c,{to:"/property-app",className:"navTab",id:"listTab",children:Object(c.jsx)("p",{children:"List View"})}),Object(c.jsx)(s.c,{to:"/map-view",className:"navTab",id:"mapTab",children:Object(c.jsx)("p",{children:"Map View"})})]})}}}]);
+//# sourceMappingURL=4.e231b0cc.chunk.js.map
