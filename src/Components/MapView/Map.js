@@ -41,7 +41,7 @@ function MapComponent({ minPrice, maxPrice, minBedrooms, maxBedrooms, addToSaved
                         setSelectedProperty(property);
                     }}
                     icon={{
-                        url: "/images/mapIcon/houseIcon.png",
+                        url: "https://i.imgur.com/FpHIBa7.png",
                         scaledSize: new window.google.maps.Size(25, 25)
                     }}
                 />
