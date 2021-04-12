@@ -56,8 +56,11 @@ function MortgageCalculator(props) {
     let numerator = amountToPay*interestPerMonth*interestPowMonths;
     let denominator = interestPowMonths - 1;
     let repaymentResult = (numerator/denominator).toFixed(2);
-    let interestResult = amountToPay*interestPerMonth
+    let interestResult = amountToPay*interestPerMonth;
 
+    // this is needed to show the result to 2 decimal places
+    interestResult = (Math.round((interestResult * 100)/100)).toFixed(2);
+    
     // class variables to show or hide the correct result depending on which radio button is displayed
     const repayment = values.repaymentType == "Repayment" ? "show" : "hide";
     const interest = values.repaymentType == "Interest" ? "show" : "hide";
