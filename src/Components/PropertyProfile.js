@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from 'react-material-ui-carousel';
-import { Link } from "react-router-dom";
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import KingBedIcon from '@material-ui/icons/KingBed';
 import WeekendIcon from '@material-ui/icons/Weekend';
@@ -11,6 +10,11 @@ import BackBtn from "./BackBtn";
 
 
 function PropertyProfile({ currentItem, addToSaved }) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     const [modalDisplay, setModalDisplay] = useState(false);
 
     const handleContactClick = () => {
