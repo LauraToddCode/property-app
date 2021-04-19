@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "google-maps-react": "^2.0.6",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "webpack": "^4.44.2"
   }
 }

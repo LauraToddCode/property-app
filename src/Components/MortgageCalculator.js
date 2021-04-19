@@ -110,6 +110,7 @@ function MortgageCalculator(props) {
                             startAdornment: <InputAdornment  className={classes.adornment} position="start">£</InputAdornment>,
                         }}
                         onChange={handleChange("propertyPrice")}
+                        onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
                         />
                         <TextField
                         label="Deposit"
@@ -120,6 +121,7 @@ function MortgageCalculator(props) {
                             startAdornment: <InputAdornment  className={classes.adornment} position="start">£</InputAdornment>,
                         }}
                         onChange={handleChange("deposit")}
+                        onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
                         />
                     </div>
                     <div>
@@ -132,6 +134,7 @@ function MortgageCalculator(props) {
                             endAdornment: <InputAdornment  className={classes.adornment} position="end">years</InputAdornment>,
                         }}
                         onChange={handleChange("years")}
+                        onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
                         />
                         <TextField
                         label="Interest Rate"
@@ -142,6 +145,7 @@ function MortgageCalculator(props) {
                             endAdornment: <InputAdornment  className={classes.adornment} position="end">%</InputAdornment>,
                         }}
                         onChange={handleChange("interestRate")}
+                        onClick={e => e.target.setSelectionRange(0, e.target.value.length)}
                         />
                     </div>
                     
