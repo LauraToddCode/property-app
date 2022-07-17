@@ -1,40 +1,42 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Redirect, Switch, BrowserRouter as Router } from "react-router-dom";
-import "./stylesheet.css";
-import { connect } from "react-redux";
+import "./stylesheet.css"
 
-const Header = lazy(() => import("./Components/Header"));
-const ListView = lazy(() => import("./Components/ListView"));
-const MapView = lazy(() => import("./Components/MapView"));
-const PropertyProfile = lazy(() => import("./Components/PropertyProfile"));
-const Saved = lazy(() => import("./Components/Saved"));
+import { Navigate, Route, Routes } from "react-router-dom"
+import React, { Suspense, lazy } from "react"
 
+import { connect } from "react-redux"
+
+// import ListView from "src/pages/list/ListView"
+
+const Header = lazy(() => import("./common/Header"))
+const ListView = lazy(() => import("./pages/list/ListView"))
+const MapView = lazy(() => import("./pages/map/MapView"))
+const PropertyProfile = lazy(() => import("./common/PropertyProfile"))
+const Saved = lazy(() => import("./pages/saved/Saved"))
 
 function App({ currentItem }) {
-
-    return (
-        <Router>
-            <Suspense fallback={<div></div>}>
-                <Header/>
-                <Switch>
-                    <Route exact path="/property-app" component={ ListView } />
-                    <Route exact path="/map-view" component={ MapView } />
-                    <Route exact path="/saved" component= { Saved } />
-                    {!currentItem ? (
-                        <Redirect to="/property-app" />
-                    ): (
-                        <Route exact path="/property-profile/:id" component= { PropertyProfile } />
-                    )}
-                </Switch>
-            </Suspense>
-        </Router>
-    )
+	return (
+		<Suspense fallback={<div></div>}>
+			<Header />
+			<Routes>
+				<Route path="/property-app" element={<ListView />} />
+				<Route path="/map-view" element={<MapView />} />
+				<Route path="/saved" element={<Saved />} />
+				{/* {!currentItem ? (
+					<Navigate to="/property-app" />
+				) : (
+					<Route path="/property-profile">
+						<Route exact path="/:id" element={<PropertyProfile />} />
+					</Route>
+				)} */}
+			</Routes>
+		</Suspense>
+	)
 }
 
-const mapStateToProps = state => {
-    return {
-        currentItem: state.save.currentItem
-    }
+const mapStateToProps = (state) => {
+	return {
+		currentItem: state.save.currentItem,
+	}
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)
