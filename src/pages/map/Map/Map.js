@@ -1,17 +1,18 @@
 import {
 	GoogleMap,
 	InfoWindow,
+	LoadScript,
 	Marker,
 	withGoogleMap,
 	withScriptjs,
-} from "react-google-maps"
+} from "@react-google-maps/api"
 import React, { useState } from "react"
-import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions"
+import { addToSaved, loadCurrentItem } from "src/redux/save/save-actions"
 
 import MarkerInfo from "./MarkerInfo"
 import { connect } from "react-redux"
-import properties from "../properties.json"
-import { useHistory } from "react-router-dom"
+import properties from "src/common/properties.json"
+import { useNavigate } from "react-router-dom"
 
 function MapComponent({
 	minPrice,
@@ -21,7 +22,7 @@ function MapComponent({
 	addToSaved,
 	loadCurrentItem,
 }) {
-	const history = useHistory()
+	const history = useNavigate()
 	const validProperty = (price, beds) =>
 		price >= minPrice &&
 		price <= maxPrice &&
@@ -104,19 +105,38 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-const WrappedMap = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(withScriptjs(withGoogleMap(MapComponent)))
+// const WrappedMap = connect(
+// 	mapStateToProps,
+// 	mapDispatchToProps
+// )(withScriptjs(withGoogleMap(MapComponent)))
+
+// function Map() {
+// 	return (
+// 		<WrappedMap
+// 			googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8`}
+// 			loadingElement={<div style={{ height: "100%" }} />}
+// 			containerElement={<div style={{ height: "100%" }} />}
+// 			mapElement={<div style={{ height: "100%" }} />}
+// 		/>
+// 	)
+// }
+
+const center = { lat: 51.23651480350905, lng: -0.5703780104611352 }
+
+const containerStyle = {
+	width: "100%",
+	height: "100%",
+}
 
 function Map() {
 	return (
-		<WrappedMap
-			googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8`}
-			loadingElement={<div style={{ height: "100%" }} />}
-			containerElement={<div style={{ height: "100%" }} />}
-			mapElement={<div style={{ height: "100%" }} />}
-		/>
+		<LoadScript googleMapsApiKey="AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8">
+			<GoogleMap
+				mapContainerStyle={containerStyle}
+				center={center}
+				zoom={12}
+			></GoogleMap>
+		</LoadScript>
 	)
 }
 
