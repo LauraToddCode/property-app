@@ -8,7 +8,9 @@ import { connect } from "react-redux"
 const Header = lazy(() => import("./common/Header"))
 const ListView = lazy(() => import("./pages/list/ListView"))
 const MapView = lazy(() => import("./pages/map/MapView"))
-const PropertyProfile = lazy(() => import("./common/PropertyProfile"))
+const PropertyProfile = lazy(() =>
+	import("./pages/property-profile/PropertyProfile")
+)
 const Saved = lazy(() => import("./pages/saved/Saved"))
 
 function App({ currentItem }) {

@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 // TODO - add loading component
 
-const SavedItem = lazy(() => import("../../common/SavedItem"))
+const SavedItem = lazy(() => import("./SavedItem"))
 const BackBtn = lazy(() => import("../../common/BackBtn"))
 
 function Saved({ savedProperties }) {

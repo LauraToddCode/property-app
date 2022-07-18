@@ -1,3 +1,4 @@
+import { bedrooms, prices } from "./content/filters.content"
 import {
 	getMaxBedsValue,
 	getMaxPriceValue,
@@ -6,9 +7,7 @@ import {
 } from "../redux/save/save-actions"
 
 import React from "react"
-import bedrooms from "./noOfBedroomsFilter.json"
 import { connect } from "react-redux"
-import prices from "./priceFilters.json"
 
 function Filters({
 	getMinPriceValue,
@@ -34,8 +33,8 @@ function Filters({
 						}
 					>
 						{prices.map((price) => (
-							<option key={price.price} value={price.price}>
-								£{price.price}
+							<option key={price} value={price}>
+								£{price}
 							</option>
 						))}
 					</select>
@@ -50,8 +49,8 @@ function Filters({
 						}
 					>
 						{prices.map((price) => (
-							<option key={price.price} value={price.price}>
-								£{price.price}
+							<option key={price} value={price}>
+								£{price}
 							</option>
 						))}
 					</select>
@@ -66,8 +65,8 @@ function Filters({
 						}
 					>
 						{bedrooms.map((num) => (
-							<option key={num.bedrooms} value={num.bedrooms}>
-								{num.bedrooms}
+							<option key={num} value={num}>
+								{num}
 							</option>
 						))}
 					</select>
@@ -82,8 +81,8 @@ function Filters({
 						}
 					>
 						{bedrooms.map((num) => (
-							<option key={num.bedrooms} value={num.bedrooms}>
-								{num.bedrooms}
+							<option key={num} value={num}>
+								{num}
 							</option>
 						))}
 					</select>
