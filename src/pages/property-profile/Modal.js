@@ -1,4 +1,5 @@
 import React from "react"
+import { modalContent } from "./modal.content"
 
 export function Modal(props) {
 	const { handleCloseClick, modalClass } = props
@@ -6,14 +7,14 @@ export function Modal(props) {
 		<div id="modalBackground" className={modalClass}>
 			<div id="contactModal">
 				<button id="closeModal" onClick={handleCloseClick}>
-					X
+					{modalContent.cross}
 				</button>
-				If Homelee were a real company we'd provide details of the agent here.
-				<br /> Unfortunately it's not.
-				<br /> So we can't.
+				{modalContent.line1}
+				<br /> {modalContent.line2}
+				<br /> {modalContent.line3}
 				<img
 					src={process.env.PUBLIC_URL + "/images/modal/modalImg.png"}
-					alt="not found"
+					alt="person making 'peace out' sign"
 					id="modalImg"
 				/>
 			</div>
