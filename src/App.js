@@ -1,11 +1,9 @@
 import "./stylesheet.css"
 
-import { Navigate, Route, Routes } from "react-router-dom"
 import React, { Suspense, lazy } from "react"
+import { Route, Routes } from "react-router-dom"
 
 import { connect } from "react-redux"
-
-// import ListView from "src/pages/list/ListView"
 
 const Header = lazy(() => import("./common/Header"))
 const ListView = lazy(() => import("./pages/list/ListView"))
@@ -21,13 +19,13 @@ function App({ currentItem }) {
 				<Route path="/property-app" element={<ListView />} />
 				<Route path="/map-view" element={<MapView />} />
 				<Route path="/saved" element={<Saved />} />
-				{/* {!currentItem ? (
-					<Navigate to="/property-app" />
-				) : (
-					<Route path="/property-profile">
-						<Route exact path="/:id" element={<PropertyProfile />} />
-					</Route>
-				)} */}
+				{currentItem && (
+					<Route
+						exact
+						path="/property-profile/:id"
+						element={<PropertyProfile />}
+					/>
+				)}
 			</Routes>
 		</Suspense>
 	)

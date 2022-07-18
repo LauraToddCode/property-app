@@ -1,4 +1,14 @@
 import {
+	CategoryScale,
+	Chart as ChartJS,
+	Legend,
+	LineElement,
+	LinearScale,
+	PointElement,
+	Title,
+	Tooltip,
+} from "chart.js"
+import {
 	FormControlLabel,
 	InputAdornment,
 	Paper,
@@ -11,6 +21,16 @@ import {
 import { Line } from "react-chartjs-2"
 import React from "react"
 
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend
+)
+
 function MortgageCalculator(props) {
 	const theme = useTheme()
 
@@ -21,8 +41,6 @@ function MortgageCalculator(props) {
 	}
 
 	const marginStyles = { marginTop: theme.spacing(1) }
-
-	const withoutLabelStyles = { marginTop: theme.spacing(3) }
 
 	const textFieldStyles = { width: "25ch" }
 
@@ -55,8 +73,8 @@ function MortgageCalculator(props) {
 	interestResult = Math.round((interestResult * 100) / 100).toFixed(2)
 
 	// class variables to show or hide the correct result depending on which radio button is displayed
-	const repayment = values.repaymentType == "Repayment" ? "show" : "hide"
-	const interest = values.repaymentType == "Interest" ? "show" : "hide"
+	const repayment = values.repaymentType === "Repayment" ? "show" : "hide"
+	const interest = values.repaymentType === "Interest" ? "show" : "hide"
 
 	// creates an array of values for the y axis based on interest only
 	let interestArr = new Array(Number(values.years + 1)).fill(amountToPay)
@@ -81,7 +99,7 @@ function MortgageCalculator(props) {
 
 	// decides which array to use for y axis of graph depending on which radio button is selected
 	let yAxisValues =
-		values.repaymentType == "Repayment" ? repaymentArr : interestArr
+		values.repaymentType === "Repayment" ? repaymentArr : interestArr
 
 	// create array of years for x-axis of graph
 	let years = [0]
@@ -212,26 +230,10 @@ function MortgageCalculator(props) {
 						],
 					}}
 					options={{
-						scales: {
-							yAxes: [
-								{
-									scaleLabel: {
-										display: true,
-										labelString: "Amount (£)",
-									},
-									ticks: {
-										stepSize: 50000,
-									},
-								},
-							],
-							xAxes: [
-								{
-									scaleLabel: {
-										display: true,
-										labelString: "Years",
-									},
-								},
-							],
+						plugins: {
+							legend: {
+								display: false,
+							},
 						},
 					}}
 				/>
