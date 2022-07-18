@@ -34,7 +34,12 @@ function MapView() {
 					<ToggleViewNav />
 					<div id="mapContainer">
 						<div id="mapClipPath">
-							<Map />
+							<Map
+								minPrice={state.minPrice}
+								maxPrice={state.maxPrice}
+								minBedrooms={state.minBedrooms}
+								maxBedrooms={state.maxBedrooms}
+							/>
 						</div>
 					</div>
 				</div>
