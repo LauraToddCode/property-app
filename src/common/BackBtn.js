@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 function Item() {
 	let history = useNavigate()
 	return (
-		<button onClick={() => history.goBack()} id="backBtn">
+		<button onClick={() => history(-1)} id="backBtn">
 			<ArrowBackIcon /> <span>go back</span>
 		</button>
 	)
