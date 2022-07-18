@@ -14,6 +14,8 @@ import { connect } from "react-redux"
 import properties from "src/common/properties.json"
 import { useNavigate } from "react-router-dom"
 
+// TODO - add markers to map
+
 function MapComponent({
 	minPrice,
 	maxPrice,
@@ -128,16 +130,80 @@ const containerStyle = {
 	height: "100%",
 }
 
-function Map() {
+function Map({
+	minPrice,
+	maxPrice,
+	minBedrooms,
+	maxBedrooms,
+	addToSaved,
+	loadCurrentItem,
+}) {
+	const history = useNavigate()
+	const validProperty = (price, beds) =>
+		price >= minPrice &&
+		price <= maxPrice &&
+		beds >= minBedrooms &&
+		beds <= maxBedrooms
+
+	const [selectedProperty, setSelectedProperty] = useState(null)
+
+	function redirectToPropertyPage(href) {
+		loadCurrentItem(selectedProperty)
+		history.push(href)
+	}
+
+	console.log(selectedProperty)
 	return (
 		<LoadScript googleMapsApiKey="AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8">
-			<GoogleMap
-				mapContainerStyle={containerStyle}
-				center={center}
-				zoom={12}
-			></GoogleMap>
+			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
+				{properties.map(
+					(property) =>
+						validProperty(property.price, property.bedrooms) && (
+							<Marker
+								key={property.id}
+								position={{
+									lat: property.lat,
+									lng: property.lng,
+								}}
+								onClick={() => {
+									setSelectedProperty(property)
+								}}
+								icon={{
+									url: "https://i.imgur.com/FpHIBa7.png",
+								}}
+							/>
+						)
+				)}
+
+				{selectedProperty && (
+					<InfoWindow
+						position={{
+							lat: selectedProperty.lat,
+							lng: selectedProperty.lng,
+						}}
+						onCloseClick={() => {
+							setSelectedProperty(null)
+						}}
+					>
+						<MarkerInfo
+							key={selectedProperty.id}
+							id={selectedProperty.id}
+							img={selectedProperty.imgs[0]}
+							price={selectedProperty.displayPrice}
+							type={selectedProperty.type}
+							beds={selectedProperty.bedrooms}
+							baths={selectedProperty.bathrooms}
+							living={selectedProperty.livingRooms}
+							findOutMore={redirectToPropertyPage}
+							saveItem={() => addToSaved(selectedProperty.id)}
+						/>
+					</InfoWindow>
+				)}
+			</GoogleMap>
 		</LoadScript>
 	)
 }
 
-export default Map
+export default connect(mapStateToProps, mapDispatchToProps)(Map)
+
+// export default Map

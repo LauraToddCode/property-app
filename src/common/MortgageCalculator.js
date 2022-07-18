@@ -31,6 +31,8 @@ ChartJS.register(
 	Legend
 )
 
+//TODO - add labels to chart axes
+
 function MortgageCalculator(props) {
 	const theme = useTheme()
 
