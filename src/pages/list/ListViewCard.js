@@ -1,9 +1,10 @@
-import { addToSaved, loadCurrentItem } from "src/redux/save/save-actions"
+import { addToSaved, loadCurrentItem } from "../../redux/save/save-actions"
 
 import BathtubIcon from "@mui/icons-material/Bathtub"
 import KingBedIcon from "@mui/icons-material/KingBed"
 import { Link } from "react-router-dom"
 import React from "react"
+import { RoomsIcon } from "../../common/RoomsIcon"
 import WeekendIcon from "@mui/icons-material/Weekend"
 import { connect } from "react-redux"
 
@@ -23,21 +24,23 @@ function ListViewCard({ propertyData, addToSaved, loadCurrentItem }) {
 					{propertyData.bedrooms} bed {propertyData.type} for sale
 				</p>
 				<div className="roomTypes">
-					<div className="indiRoomType">
-						<KingBedIcon />
-						<p>{propertyData.bedrooms}</p>
-					</div>
-					<div className="indiRoomType">
-						<BathtubIcon />
-						<p>{propertyData.bathrooms}</p>
-					</div>
-					<div className="indiRoomType">
-						<WeekendIcon />
-						<p>{propertyData.livingRooms}</p>
-					</div>
+					<RoomsIcon
+						className="indiRoomType"
+						icon={<KingBedIcon />}
+						quantity={propertyData.bedrooms}
+					/>
+					<RoomsIcon
+						className="indiRoomType"
+						icon={<BathtubIcon />}
+						quantity={propertyData.bathrooms}
+					/>
+					<RoomsIcon
+						className="indiRoomType"
+						icon={<WeekendIcon />}
+						quantity={propertyData.livingRooms}
+					/>
 				</div>
 				<p className="listViewDesc">{propertyData.propertyDesc}</p>
-
 				<div className="btnsContainer">
 					<Link
 						to={`/property-profile/${propertyData.id}`}
