@@ -1,23 +1,28 @@
-name: Build and Deploy
-on: [push]
+name: build-and-deploy
+on:
+  push:
+    branches: main
 permissions:
   contents: write
 jobs:
-  build-and-deploy:
-    concurrency: ci-${{ github.ref }}
+  build-deploy:
+    name: Build and deploy
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          npm run predeploy
-          npm run deploy
+      - name: Build
+        run: npm install
+          npm run-script build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          folder: .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
+          BRANCH: gh-pages
+          FOLDER: build

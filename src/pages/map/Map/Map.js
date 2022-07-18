@@ -57,8 +57,10 @@ function Map({
 		history(href)
 	}
 
+	const API_KEY = process.env.REACT_APP_API_KEY
+
 	return (
-		<LoadScript googleMapsApiKey="AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8">
+		<LoadScript googleMapsApiKey={API_KEY}>
 			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
 				{properties.map(
 					(property) =>
