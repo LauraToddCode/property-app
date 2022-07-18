@@ -123,8 +123,8 @@ function PropertyProfile({ currentItem, addToSaved }) {
 					<div className="featuresDesc">
 						<h2>Features</h2>
 						<ul className="featureList">
-							{currentItem.features.map((feature) => (
-								<li>{feature}</li>
+							{currentItem.features.map((feature, key) => (
+								<li key={key}>{feature}</li>
 							))}
 						</ul>
 					</div>
@@ -145,6 +145,7 @@ function PropertyProfile({ currentItem, addToSaved }) {
 					<br /> So we can't.
 					<img
 						src={process.env.PUBLIC_URL + "/images/modal/modalImg.png"}
+						alt="not found"
 						id="modalImg"
 					/>
 				</div>
