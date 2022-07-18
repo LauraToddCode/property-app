@@ -35,7 +35,7 @@ function MapComponent({
 
 	function redirectToPropertyPage(href) {
 		loadCurrentItem(selectedProperty)
-		history.push(href)
+		history(href)
 	}
 
 	return (
@@ -149,10 +149,9 @@ function Map({
 
 	function redirectToPropertyPage(href) {
 		loadCurrentItem(selectedProperty)
-		history.push(href)
+		history(href)
 	}
 
-	console.log(selectedProperty)
 	return (
 		<LoadScript googleMapsApiKey="AIzaSyDkkJc93fGg9R_nnpixdapZeCzDbghpWR8">
 			<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
