@@ -10,6 +10,7 @@ import React, { Suspense, lazy } from "react"
 import { connect } from "react-redux"
 import { sortMenuItems } from "./sortMenuItems"
 import { sortProperties } from "./sortProperties"
+import { Spinner } from "../../common/Spinner"
 
 const Filters = lazy(() => import("../../common/Filters"))
 const ToggleViewNav = lazy(() => import("../../common/ToggleViewNav"))
@@ -47,7 +48,7 @@ function ListView({
 
 	return (
 		<div className="appContainer">
-			<Suspense fallback={<div></div>}>
+			<Suspense fallback={<Spinner />}>
 				<Filters />
 				<div>
 					<ToggleViewNav />
