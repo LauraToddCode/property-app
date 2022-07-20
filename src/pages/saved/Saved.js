@@ -2,17 +2,17 @@ import React, { Suspense, lazy } from "react"
 
 import { connect } from "react-redux"
 
-// TODO - add loading component
+import { BackBtn } from "../../common/BackBtn"
+import { Spinner } from "../../common/Spinner"
 
 const SavedItem = lazy(() => import("./SavedItem"))
-const BackBtn = lazy(() => import("../../common/BackBtn"))
 
 function Saved({ savedProperties }) {
 	const noItems = savedProperties.length === 0 ? "show" : "hide"
-
+console.log(savedProperties)
 	return (
 		<div id="savedContainer">
-			<Suspense fallback={<div></div>}>
+			<Suspense fallback={<Spinner />}>
 				<BackBtn />
 				<p className={"savedMessage " + noItems}>
 					You have no saved properties
@@ -32,3 +32,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Saved)
+

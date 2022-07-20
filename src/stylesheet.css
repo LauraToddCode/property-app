@@ -1,840 +1,870 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #8EC7FF;
-    margin: 0;
+	font-family: "Roboto", sans-serif;
+	background-color: #8ec7ff;
+	margin: 0;
 }
 
 .appContainer {
-    margin: 0 25px;
-    display: flex;
+	margin: 0 25px;
+	display: flex;
 }
 
 label {
-    font-size: 1.25rem;
-    font-weight: lighter;
-    margin-bottom: 10px;
+	font-size: 1.25rem;
+	font-weight: lighter;
+	margin-bottom: 10px;
 }
 
 select {
-    font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
-    font-size: 1.25rem;
-    padding: 7px;
-    border-radius: 6px;
-    border: 2px solid #8EC7FF
+	font-family: "Roboto", sans-serif;
+	font-weight: lighter;
+	font-size: 1.25rem;
+	padding: 7px;
+	border-radius: 6px;
+	border: 2px solid #8ec7ff;
 }
 
 #spinnerContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100px;
 }
 
 #spinner {
-    border: 8px solid #cce6ff; 
-    border-top: 8px solid #3399ff;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    animation: spin 1.25s linear infinite;
+	border: 8px solid #cce6ff;
+	border-top: 8px solid #3399ff;
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	animation: spin 1.25s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .btn {
-    height: 100%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    border-radius: 6px;
-    display: flex;
-    place-items: center;
-    place-content: center;
-    cursor: pointer;
+	height: 100%;
+	font-size: 1.5rem;
+	font-weight: 500;
+	border-radius: 6px;
+	display: flex;
+	place-items: center;
+	place-content: center;
+	cursor: pointer;
 }
 
 .moreBtn {
-    background-color: #8EC7FF;
-    color: white;
-    text-decoration: none;
+	background-color: #8ec7ff;
+	color: white;
+	text-decoration: none;
 }
 
 .btn:hover {
-    background-color: #26547C;
+	background-color: #26547c;
 }
 
 .saveBtn:hover {
-    color: white;
+	color: white;
 }
 
 .saveBtn {
-    font-family: 'Roboto', sans-serif;
-    border: 2px solid #8EC7FF;
-    background-color: white;
+	font-family: "Roboto", sans-serif;
+	border: 2px solid #8ec7ff;
+	background-color: white;
 }
 
 .btnsContainer {
-    height: 50px;
-    display: grid;
-    grid-template-columns: 47% 47%;
-    grid-gap: 6%;
+	height: 50px;
+	display: grid;
+	grid-template-columns: 47% 47%;
+	grid-gap: 6%;
 }
 
 /* BACK BTN */
 
 #backBtn {
-    display: flex;
-    align-self: flex-end;
-    justify-self: flex-end;
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: #8EC7FF;
-    position: relative;
-    background-color: white;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    margin-bottom: 10px;
+	display: flex;
+	align-self: flex-end;
+	justify-self: flex-end;
+	font-size: 1.25rem;
+	text-decoration: none;
+	color: #8ec7ff;
+	position: relative;
+	background-color: white;
+	cursor: pointer;
+	border: none;
+	padding: 0;
+	margin-bottom: 10px;
 }
 
 #backBtn span {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 #backBtn::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #8EC7FF;
-    transform-origin: bottom right;
-    transform: scaleX(0);
-    transition: transform 0.5s ease;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: #8ec7ff;
+	transform-origin: bottom right;
+	transform: scaleX(0);
+	transition: transform 0.5s ease;
 }
-  
+
 #backBtn:hover::before {
-    transform-origin: bottom left;
-    transform: scaleX(1);
+	transform-origin: bottom left;
+	transform: scaleX(1);
 }
 
 /* HEADER */
 
 #header {
-    color: white;
-    display: grid;
-    grid-template-columns: 25px 1fr 1fr 1fr 25px;
-    margin: 15px 0 45px 0;
+	color: white;
+	display: grid;
+	grid-template-columns: 25px 1fr 1fr 1fr 25px;
+	margin: 15px 0 45px 0;
 }
 
 #title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 3/4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 3/4;
 }
 
 .headerIcon {
-    margin-right: 10px;
-    color: white;
+	margin-right: 10px;
+	color: white;
 }
 
 #savedLinkCont {
-    display: inline-block;
-    align-self: flex-end;
-    justify-self: flex-end;
-    font-size: 1rem;
+	display: inline-block;
+	align-self: flex-end;
+	justify-self: flex-end;
+	font-size: 1rem;
 }
 
 #headerSaved {
-    text-decoration: none;
-    color: white;
-    position: relative;
+	text-decoration: none;
+	color: white;
+	position: relative;
 }
 
 #headerSaved::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: white;
-    transform-origin: bottom right;
-    transform: scaleX(0);
-    transition: transform 0.5s ease;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: white;
+	transform-origin: bottom right;
+	transform: scaleX(0);
+	transition: transform 0.5s ease;
 }
-  
+
 #headerSaved:hover::before {
-    transform-origin: bottom left;
-    transform: scaleX(1);
+	transform-origin: bottom left;
+	transform: scaleX(1);
 }
 
 /* FILTERS */
 
 #filters {
-    height: 460px;
-    min-width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    padding: 20px 25px 50px 25px;
-    margin-right: 35px;
-    border-radius: 6px;
+	height: 460px;
+	min-width: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	padding: 20px 25px 50px 25px;
+	margin-right: 35px;
+	border-radius: 6px;
 }
 
 #filterDropdowns {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
 }
 
 #startSearch {
-    margin: 0 0 15px 0;
-    font-weight: bold;
-    font-size: 1.75rem;
+	margin: 0 0 15px 0;
+	font-weight: bold;
+	font-size: 1.75rem;
 }
 
 .indiFilter {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 15px;
 }
 
 /* NAV TOGGLES */
 
 .navToggles {
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    border-radius: 6px 6px 0 0;
+	display: flex;
+	justify-content: space-around;
+	background-color: white;
+	border-radius: 6px 6px 0 0;
 }
 
 .navTab {
-    width: 50%;
-    text-decoration: none;
-    color: black;
-    font-size: 1.25rem;
-    text-align: center;
-    background-color: white;
-    border-radius: 6px 6px 0 0;
-    color: #8EC7FF;
+	width: 50%;
+	text-decoration: none;
+	color: black;
+	font-size: 1.25rem;
+	text-align: center;
+	background-color: white;
+	border-radius: 6px 6px 0 0;
+	color: #8ec7ff;
 }
 
 .active {
-    border-bottom: 5px #8EC7FF solid;
+	border-bottom: 5px #8ec7ff solid;
 }
-
 
 /* LIST VIEW */
 
 .listViewList {
-    background-color: white;
-    padding: 30px 40px 5px 40px;
-    margin-bottom: 30px;
-    border-radius: 0 0 6px 6px;
+	background-color: white;
+	padding: 30px 40px 5px 40px;
+	margin-bottom: 30px;
+	border-radius: 0 0 6px 6px;
 }
 
 .listViewCardCont {
-    display: grid;
-    grid-template-columns: 50% 45%;
-    grid-gap: 5%;
-    padding: 25px;
-    margin: 40px 0;
-    border-radius: 6px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+	display: grid;
+	grid-template-columns: 50% 45%;
+	grid-gap: 5%;
+	padding: 25px;
+	margin: 40px 0;
+	border-radius: 6px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .listViewPropertyImg {
-    width: 100%;
+	width: 100%;
 }
 
 .listViewPrice {
-    margin: 0;
-    color: #8EC7FF;
-    font-weight: bold;
-    font-size: 1.5rem;
+	margin: 0;
+	color: #8ec7ff;
+	font-weight: bold;
+	font-size: 1.5rem;
 }
 
 .listViewTagline {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 0.5em 0;
+	font-weight: bold;
+	font-size: 1.5rem;
+	margin: 0.5em 0;
 }
 
 .listViewDesc {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 .listViewInfoCont {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: white;
 }
 
 .roomTypes {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
 }
 
 .indiRoomType {
-    display: flex;
-    height: 32px;
-    align-items: center;
+	display: flex;
+	height: 32px;
+	align-items: center;
 }
 
 .indiRoomType:not(:first-child) {
-    margin-left: 3rem;
+	margin-left: 3rem;
 }
 
 .indiRoomType p {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 /* MORTGAGE CALCULATOR */
 
 .mortgageCalculator {
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
-    margin: 40px 0;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1rem;
+	margin: 40px 0;
 }
 
 .radioResultContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
 }
 
 .mortgageSmallText {
-    font-size: .75rem;
+	font-size: 0.75rem;
 }
 
 .mortgageAmount {
-    font-size: 2rem;
-    color: #494af3;
-    font-weight: 600;
-    margin: 0 7px;
+	font-size: 2rem;
+	color: #494af3;
+	font-weight: 600;
+	margin: 0 7px;
 }
 
 .mortgageLargeText {
-    display: flex;
-    align-items: baseline;
+	display: flex;
+	align-items: baseline;
 }
 
 .show {
-    display: block;
+	display: block;
 }
 
 .hide {
-    display: none;
+	display: none;
+}
+
+#calculatorFieldsTopRow {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
 
 .mortgageChartContainer {
-    display: flex;
-    align-items: center;
-    width: 500px;
-    height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 600px;
+}
+
+#chartYAxisLabel {
+	align-self: left;
+	width: 100%;
+}
+
+.chartAxes {
+	margin: 0;
+	font-size: 12px;
 }
 
 /* PROPERTY PROFILE */
 
 .profileContainer {
-    margin: 0 25px;
-    display: flex;
-    flex-direction: column;
+	margin: 0 25px;
+	display: flex;
+	flex-direction: column;
 }
 
 .profilePanel {
-    background-color: white;
-    border-radius: 6px;
-    padding: 30px;
+	background-color: white;
+	border-radius: 6px;
+	padding: 30px;
 }
 
 .carousel {
-    width: 100%;
+	width: 100%;
 }
 
 .carouselImg {
-    width: 100%;
+	width: 100%;
 }
 
 .propertyProfileImg {
-    width: 100%;
+	width: 100%;
 }
 
 #profilePrice {
-    font-size: 1.75rem;
-    color: #8EC7FF;
-    font-weight: bold;
-    margin-bottom: 0;
+	font-size: 1.75rem;
+	color: #8ec7ff;
+	font-weight: bold;
+	margin-bottom: 0;
 }
 
 #profileTagline {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin: 0 0 10px 0;
+	font-size: 1.75rem;
+	font-weight: bold;
+	margin: 0 0 10px 0;
 }
 
 .profileTop {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
 }
 
 .profileMainDetails {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    margin: 0 0 0 30px;
-    padding-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
+	margin: 0 0 0 30px;
+	padding-bottom: 30px;
 }
 
 .roomTypeIcon {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 #profileBtnsCont {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .profileSaveBtn {
-    margin-bottom: 20px;
-    height: 50px;
-    width: 50%;
+	margin-bottom: 20px;
+	height: 50px;
+	width: 50%;
 }
 
 .contactBtn {
-    background-color: #8EC7FF;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 20px;
-    height: 50px;
-    width: 50%;
-    border: none;
-    font-family: "Roboto", sans-serif;
+	background-color: #8ec7ff;
+	color: white;
+	text-decoration: none;
+	margin-bottom: 20px;
+	height: 50px;
+	width: 50%;
+	border: none;
+	font-family: "Roboto", sans-serif;
 }
 
 .desktopRooms {
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .mobileRooms {
-    display: none;
+	display: none;
 }
 
 .profileFeaturesDesc {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .featuresDesc {
-    width: 50%;
-    font-size: 1rem;
+	width: 50%;
+	font-size: 1rem;
 }
 
 .featureList {
-    display: flex;
-    flex-direction: column;
-    height: 60px;
-    flex-wrap: wrap;
-    padding-left: 20px;
+	display: flex;
+	flex-direction: column;
+	height: 60px;
+	flex-wrap: wrap;
+	padding-left: 20px;
 }
 
 /* CONTACT MODAL */
 
 #modalBackground {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.4); 
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .show {
-    display: block;
+	display: block;
 }
 
 .hide {
-    display: none;
+	display: none;
 }
 
 #contactModal {
-    width: 40%;
-    height: auto;
-    background-color: #8EC7FF;
-    border-radius: 6px;
-    margin: 10% auto;
-    padding: 20px 20px 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+	width: 40%;
+	height: auto;
+	background-color: #8ec7ff;
+	border-radius: 6px;
+	margin: 10% auto;
+	padding: 20px 20px 30px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 }
 
 #closeModal {
-    align-self: flex-end;
-    background-color: #8EC7FF;
-    border: none;
-    cursor: pointer;
-    font-size: 1.25rem;
-    font-weight: bold;
+	align-self: flex-end;
+	background-color: #8ec7ff;
+	border: none;
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 #modalImg {
-    width: 250px;
+	width: 250px;
 }
 
 /* MAP VIEW */
 
 #mapPanel {
-    width: 100%;
+	width: 100%;
 }
 
 #mapContainer {
-    background-color: white;
-    padding: 30px;
+	background-color: white;
+	padding: 30px;
 }
 
 #mapClipPath {
-    height: 500px;
-    background-color: white;
-    position: relative;
+	height: 500px;
+	background-color: white;
+	position: relative;
 }
 
 .infoWindow {
-    width: 300px;
-    padding: 5px;
-    display: flex;
-}
-
-.infoCol1 { 
-    width: 52%;
-}
-
-.infoCol2 {
-    width: 42%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+	width: 300px;
+	padding: 5px;
+	display: flex;
 }
 
 .infoCol1 {
-    margin-right: 4%;
+	width: 52%;
+}
+
+.infoCol2 {
+	width: 42%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.infoCol1 {
+	margin-right: 4%;
 }
 
 .windowInfoImg {
-    width: 100%;
+	width: 100%;
 }
 
 .infoWindowPrice {
-    color: #8EC7FF;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-top: 10px;
+	color: #8ec7ff;
+	font-weight: bold;
+	font-size: 1rem;
+	margin-top: 10px;
 }
 
 .infoWindowBtnsContainer {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .infoWindowBtns {
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    display: flex;
-    place-items: center;
-    place-content: center;
-    cursor: pointer;
-    height: 30px;
-    margin-top: 20px;
+	font-size: 1rem;
+	font-weight: 500;
+	border-radius: 6px;
+	display: flex;
+	place-items: center;
+	place-content: center;
+	cursor: pointer;
+	height: 30px;
+	margin-top: 20px;
 }
 
 .infoWindowBtns:hover {
-    background-color: #26547C;
+	background-color: #26547c;
 }
 
 .infoRoomTypes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .infoRoomType {
-    display: flex;
-    height: 32px;
-    align-items: center;
+	display: flex;
+	height: 32px;
+	align-items: center;
 }
 
 .infoRoomType p {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 /* SAVED */
 
 #savedContainer {
-    margin: 0 6rem;
-    background-color: white;
-    border-radius: 6px;
-    padding: 30px;
+	margin: 0 6rem;
+	background-color: white;
+	border-radius: 6px;
+	padding: 30px;
 }
 
 .savedMessage {
-    color: #8EC7FF;
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-align: center;
+	color: #8ec7ff;
+	font-size: 1.25rem;
+	font-weight: bold;
+	text-align: center;
 }
 
 .savedBtnsContainer {
-    display: grid;
-    grid-template-columns: 1fr 50px;
-    grid-gap: 15%;
-    height: 50px;
+	display: grid;
+	grid-template-columns: 1fr 50px;
+	grid-gap: 15%;
+	height: 50px;
 }
 
 .savedMoreBtn {
-    background-color: #8EC7FF;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 20px;
-    height: 100%;
-    border: none;
-    font-family: "Roboto", sans-serif;
+	background-color: #8ec7ff;
+	color: white;
+	text-decoration: none;
+	margin-bottom: 20px;
+	height: 100%;
+	border: none;
+	font-family: "Roboto", sans-serif;
 }
 
 .deleteBtn {
-    background-color: #8EC7FF;
-    border: none;
-    height: 100%;
+	background-color: #8ec7ff;
+	border: none;
+	height: 100%;
 }
 
 @media screen and (max-width: 1050px) and (min-width: 0px) {
-    
-    .appContainer {
-        flex-direction: column;
-    }
+	.appContainer {
+		flex-direction: column;
+	}
 
-    #filters {
-        margin: 0 0 45px 0;
-    }
-    
-    .listViewDesc {
-        display: none;
-    }
+	#filters {
+		margin: 0 0 45px 0;
+	}
 
-    .desktopRooms {
-        display: none;
-    }
+	.listViewDesc {
+		display: none;
+	}
 
-    .mobileRooms {
-        display: flex;      
-        justify-content: space-around;
-    }
+	.desktopRooms {
+		display: none;
+	}
 
-    #savedContainer {
-        margin: 0 25px;
-    }
+	.mobileRooms {
+		display: flex;
+		justify-content: space-around;
+	}
 
-    .savedBtnsContainer {
-        height: 30px;
-    }
+	#savedContainer {
+		margin: 0 25px;
+	}
 
-    .savedMoreBtn {
-        margin: 0
-    }
+	.savedBtnsContainer {
+		height: 30px;
+	}
 
-    .featureList {
-        height: auto;
-    }
+	.savedMoreBtn {
+		margin: 0;
+	}
 
+	.featureList {
+		height: auto;
+	}
 }
 
 @media screen and (max-width: 1050px) and (min-width: 760px) {
-    .btn {
-        font-size: 1rem;
-    }
+	.btn {
+		font-size: 1rem;
+	}
 
-    #filters {
-        height: 215px; 
-    }
-    
-    #filterDropdowns {
-        flex-wrap: wrap;
-        align-items: center;
-        height: 100%;
-    }
+	#filters {
+		height: 215px;
+	}
 
-    .indiFilter {
-        width: 45%;
-    }
+	#filterDropdowns {
+		flex-wrap: wrap;
+		align-items: center;
+		height: 100%;
+	}
 
-    .listViewList {
-        padding: 30px 30px 5px 30px;
-    }
+	.indiFilter {
+		width: 45%;
+	}
 
-    .listViewPrice {
-        font-size: 1.25rem;
-    }
-    
-    .listViewTagline {
-        font-size: 1.25rem;
-    }
+	.listViewList {
+		padding: 30px 30px 5px 30px;
+	}
+
+	.listViewPrice {
+		font-size: 1.25rem;
+	}
+
+	.listViewTagline {
+		font-size: 1.25rem;
+	}
 }
 
 @media screen and (max-width: 760px) and (min-width: 0px) {
-    #header {
-        grid-template-columns: 25px 1fr 25px;
-        grid-template-rows: 2fr 1fr;
-        margin-bottom: 8px;
-    }
+	#header {
+		grid-template-columns: 25px 1fr 25px;
+		grid-template-rows: 2fr 1fr;
+		margin-bottom: 8px;
+	}
 
-    #title {
-        grid-column: 2/3;
-    }
+	#title {
+		grid-column: 2/3;
+	}
 
-    #title img {
-        width: calc(100vw - 50px);
-    }
+	#title img {
+		width: calc(100vw - 50px);
+	}
 
-    #savedLinkCont {
-        grid-row: 2/3;
-        grid-column-end: 3;
-        margin-top: 20px;
-        font-size: 1.5rem;
-    }
+	#savedLinkCont {
+		grid-row: 2/3;
+		grid-column-end: 3;
+		margin-top: 20px;
+		font-size: 1.5rem;
+	}
 
-    #filters {
-        padding-bottom: 0;
-    }
+	#filters {
+		padding-bottom: 0;
+	}
 
-    .listViewList {
-        padding: 28px 18px 5px 18px;
-    }
+	.listViewList {
+		padding: 28px 18px 5px 18px;
+	}
 
-    .listViewCardCont {
-        display: flex;
-        flex-direction: column;
-    }
+	.listViewCardCont {
+		display: flex;
+		flex-direction: column;
+	}
 
-    .listViewPrice {
-        margin-top: 10px;
-        text-align: right;
-    }
+	.listViewPrice {
+		margin-top: 10px;
+		text-align: right;
+	}
 
-    .btnsContainer {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
+	.btnsContainer {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+	}
 
-    .btn {
-        height: 53px;
-    }
+	.btn {
+		height: 53px;
+	}
 
-    .moreBtn {
-        margin: 25px 0;
-    }
+	.moreBtn {
+		margin: 25px 0;
+	}
 
-    .indiRoomType p {
-        display: none;
-    }
+	.indiRoomType p {
+		display: none;
+	}
 
-    #mapContainer {
-        padding: 28px 18px 45px 18px;
-        margin-bottom: 30px;
-        border-radius: 0 0 6px 6px;
-    }
+	#mapContainer {
+		padding: 28px 18px 45px 18px;
+		margin-bottom: 30px;
+		border-radius: 0 0 6px 6px;
+	}
 
-    .infoWindow {
-        width: 100%;
-        flex-direction: column;
-    }
+	.infoWindow {
+		width: 100%;
+		flex-direction: column;
+	}
 
-    .infoCol1, .infoCol2 {
-        margin-right: 0;
-        width: 95%
-    }
+	.infoCol1,
+	.infoCol2 {
+		margin-right: 0;
+		width: 95%;
+	}
 
-    .infoTagLine {
-        display: none;
-    }
+	.infoTagLine {
+		display: none;
+	}
 
-    .infoRoomTypes {
-        flex-direction: column;
-    }
+	.infoRoomTypes {
+		flex-direction: column;
+	}
 
-    .infoWindowBtns {
-        margin: 5px 0;
-    }
+	.infoWindowBtns {
+		margin: 5px 0;
+	}
 
-    .savedBtnsContainer {
-        margin-top: 20px;
-        height: 53px;
-    }
+	.savedBtnsContainer {
+		margin-top: 20px;
+		height: 53px;
+	}
 
-    #contactModal {
-        width: 80%;
-    }
+	#contactModal {
+		width: 80%;
+	}
 
-    .profileTop {
-        display: flex;
-        flex-direction: column;
-    }
+	.profileTop {
+		display: flex;
+		flex-direction: column;
+	}
 
-    .profileMainDetails {
-        margin: 0;
-    }
+	.profileMainDetails {
+		margin: 0;
+	}
 
-    .contactBtn {
-        width: 100%;
-    }
+	.contactBtn {
+		width: 100%;
+	}
 
-    .profileSaveBtn {
-        width: 100%
-    }
+	.profileSaveBtn {
+		width: 100%;
+	}
 
-    .profileFeaturesDesc {
-        flex-direction: column;
-    }
+	.profileFeaturesDesc {
+		flex-direction: column;
+	}
 
-    .featuresDesc {
-        width: 100%;
-    }
+	.featuresDesc {
+		width: 100%;
+	}
 
-    .radioResultContainer {
-        flex-direction: column;
-    }
+	.radioResultContainer {
+		flex-direction: column;
+	}
 
-    #mortgageCalc h2 {
-        text-align: center;
-    }
+	#mortgageCalc h2 {
+		text-align: center;
+	}
 
-    .mortgageChartContainer {
-        width: 100%;
-        height: auto;
-        margin: 40px 0;
-    }
+	.mortgageChartContainer {
+		width: 100%;
+		height: auto;
+		margin: 40px 0;
+	}
+}
+
+@media screen and (max-width: 625px) and (min-width: 0px) {
+	#calculatorFields {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#calculatorFieldsTopRow {
+		flex-direction: column;
+	}
 }

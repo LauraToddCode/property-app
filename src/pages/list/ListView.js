@@ -7,10 +7,10 @@ import {
 } from "@mui/material"
 import React, { Suspense, lazy } from "react"
 
+import { Spinner } from "../../common/Spinner"
 import { connect } from "react-redux"
 import { sortMenuItems } from "./sortMenuItems"
 import { sortProperties } from "./sortProperties"
-import { Spinner } from "../../common/Spinner"
 
 const Filters = lazy(() => import("../../common/Filters"))
 const ToggleViewNav = lazy(() => import("../../common/ToggleViewNav"))
@@ -55,12 +55,13 @@ function ListView({
 
 					<div className="listViewList">
 						<FormControl sx={formControlStyles}>
-							<InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
+							<InputLabel id="sort-by-select-label">Sort By:</InputLabel>
 							<Select
-								labelId="demo-simple-select-label"
+								labelId="sort-by-select-label"
 								id="demo-simple-select"
 								defaultValue="bedsHighToLow"
 								onChange={handleSort}
+								label="Sort By:"
 							>
 								{sortMenuItems.map((item, key) => (
 									<MenuItem key={key} value={item.value}>

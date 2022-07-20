@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import { BackBtn } from "../../common/BackBtn"
 import { Modal } from "./Modal"
-import MortgageCalculator from "../../common/MortgageCalculator"
+import MortgageCalculator from "../../common/mortgage-calculator/MortgageCalculator"
 import { PropertyImg } from "./PropertyImg"
 import { Rooms } from "./rooms"
 import { addToSaved } from "../../redux/save/save-actions"
