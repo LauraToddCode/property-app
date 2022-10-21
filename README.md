@@ -7,7 +7,7 @@ A multi-page React app for users to find properties for sale and view details.
 
 ## Demo
 
-Click [here](https://lauratoddcode.github.io/property-app) to view the site.
+Click [here](https://lauratoddcodes.github.io/property-app/) to view the site.
 
 
   
