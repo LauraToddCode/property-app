@@ -1,26 +1,30 @@
 /// <reference types="cypress" />
 
-context('List view', () => {
+context('Saving', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/property-app')
   })
 
-  it('filters panel', () => {
+  it('save a property, then delete it', () => {
 
-    cy.get('#filters').children('h3').contains('start your search')
+    cy.get('#headerSaved').contains('Saved Properties (0)')    
 
-    const filters = cy.get('#filters').children('div').children('form')
+    cy.get('.saveBtn').first().click()
 
-    filters.each((item) => {
-      cy.wrap(item).find('label').should('have.length', 1)
-      cy.wrap(item).find('select').should('have.length', 1)
-    });
+    cy.get('#headerSaved').contains('Saved Properties (1)')
 
-    cy.get('.listViewCardCont').should('have.length', 5)
+    cy.get('#headerSaved').click()
 
-    filters.first().children('select').select('£300000')
+    cy.location('pathname').should('include', 'saved')
 
-    cy.get('.listViewCardCont').should('have.length', 3)
+    cy.get('#savedContainer').children('.listViewCardCont').should('have.length', 1)
+
+    cy.get('.deleteBtn').click()
+
+    cy.get('#headerSaved').contains('Saved Properties (0)')    
+
+    cy.get('#savedContainer').children('.listViewCardCont').should('have.length', 0)
+
   })
 
 })
