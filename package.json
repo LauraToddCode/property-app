@@ -39,7 +39,7 @@
 		"@mui/styles": "^5.16.6",
 		"@react-google-maps/api": "^2.12.1",
 		"fontsource-roboto": "^4.0.0",
-		"gh-pages": "^5.0.0",
+		"gh-pages": "^6.1.1",
 		"react": "^17.0.2",
 		"react-chartjs-2": "^5.2.0",
 		"react-dom": "^17.0.2",
