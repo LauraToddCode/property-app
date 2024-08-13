@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/property-app/static/css/main.d7c9d6d3.css",
+    "main.css": "/property-app/static/css/main.9c39ce38.css",
     "main.js": "/property-app/static/js/main.abb3c067.js",
     "static/js/135.b2c44f5c.chunk.js": "/property-app/static/js/135.b2c44f5c.chunk.js",
     "static/js/749.384a837f.chunk.js": "/property-app/static/js/749.384a837f.chunk.js",
@@ -16,16 +16,8 @@
     "static/js/169.27255dcc.chunk.js": "/property-app/static/js/169.27255dcc.chunk.js",
     "static/js/552.5ad89687.chunk.js": "/property-app/static/js/552.5ad89687.chunk.js",
     "static/js/506.1b0eae6a.chunk.js": "/property-app/static/js/506.1b0eae6a.chunk.js",
-    "static/media/roboto-all-400-normal.woff": "/property-app/static/media/roboto-all-400-normal.b5a0a0df312d3423493b.woff",
-    "static/media/roboto-latin-400-normal.woff2": "/property-app/static/media/roboto-latin-400-normal.176f8f5bd5f02b3abfcf.woff2",
-    "static/media/roboto-cyrillic-ext-400-normal.woff2": "/property-app/static/media/roboto-cyrillic-ext-400-normal.dd55ea0a2e90d5d86e15.woff2",
-    "static/media/roboto-latin-ext-400-normal.woff2": "/property-app/static/media/roboto-latin-ext-400-normal.dcc07bcfcd475f34f20b.woff2",
-    "static/media/roboto-cyrillic-400-normal.woff2": "/property-app/static/media/roboto-cyrillic-400-normal.3605d18d8a4ce5bd39c3.woff2",
-    "static/media/roboto-greek-400-normal.woff2": "/property-app/static/media/roboto-greek-400-normal.352cc77aaed5208ce13c.woff2",
-    "static/media/roboto-vietnamese-400-normal.woff2": "/property-app/static/media/roboto-vietnamese-400-normal.52cebac009baf5592e7d.woff2",
     "index.html": "/property-app/index.html",
-    "static/media/roboto-greek-ext-400-normal.woff2": "/property-app/static/media/roboto-greek-ext-400-normal.bc7ace6e50c7d9d4d959.woff2",
-    "main.d7c9d6d3.css.map": "/property-app/static/css/main.d7c9d6d3.css.map",
+    "main.9c39ce38.css.map": "/property-app/static/css/main.9c39ce38.css.map",
     "main.abb3c067.js.map": "/property-app/static/js/main.abb3c067.js.map",
     "135.b2c44f5c.chunk.js.map": "/property-app/static/js/135.b2c44f5c.chunk.js.map",
     "749.384a837f.chunk.js.map": "/property-app/static/js/749.384a837f.chunk.js.map",
@@ -43,7 +35,7 @@
     "506.1b0eae6a.chunk.js.map": "/property-app/static/js/506.1b0eae6a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7c9d6d3.css",
+    "static/css/main.9c39ce38.css",
     "static/js/main.abb3c067.js"
   ]
 }
