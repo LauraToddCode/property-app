@@ -1,4 +1,3 @@
-import { composeWithDevTools } from "redux-devtools-extension"
 import { createStore } from "redux"
 import rootReducer from "./rootReducer"
 
@@ -30,7 +29,6 @@ function loadFromLocalStorage() {
 const store = createStore(
 	rootReducer,
 	loadFromLocalStorage(),
-	composeWithDevTools()
 )
 
 // listen for store changes and use saveToLocalStorage to
